@@ -1,0 +1,74 @@
+@extends('layouts.main')
+@section('title', 'Dashboard')
+@section('content')
+
+
+<div class="container">
+                <div class="container">
+
+                    <div class="page-header">
+                        <nav class="breadcrumb-one" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0);">Add Sender</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                     
+                    <div class="row">
+                        <div id="flFormsGrid" class="col-lg-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Filter Data</h4>
+                                        </div>                                                                        
+                                    </div>
+                                </div>
+                                <form method="post" action="{{url('/generate-allinone-pdf') }}" id="allinone" >
+                                 @csrf
+                                <div class="widget-content widget-content-area">
+                                   
+                                        <div class="form-row mb-4">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">From</label>
+                                                <input type="date" class="form-control" id="fromDate" name="fromDate" placeholder="" autocomplete="off">
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                            
+                                                <label for="inputEmail4">To</label>
+                                                <input type="date" class="form-control" id="toDate" name="toDate" placeholder="" autocomplete="off">
+                                            </div>       
+                                        </div>
+                                        <div class="form-row mb-4">
+                                <div class="form-group col-md-4">
+                                        <label for="inputState">Site</label>
+                                        <select id="siteId" name="site_id" class="form-control">
+                                          
+                                            @foreach($site as $i)
+                                            <option value="{{$i->site_id}}">{{$i->site_id}}</option>
+                                              @endforeach
+                                              
+                                          </select>
+                                      </div>
+  
+                                      
+                                  </div>
+                                     <button type="submit" class="btn btn-primary" style="margin-bottom:9px;">Generate PDF</button>
+                                     <div class="spinner-border text-primary  align-self-center"  id ="pageloader" style="display: none;"></div>
+                                      
+                                    </form>
+       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+
+
+
+
+@endsection
