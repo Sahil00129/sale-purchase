@@ -16,10 +16,16 @@
     <link href="{{asset('plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/dashboard/dash_2.css')}}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+     <!--  BEGIN CUSTOM STYLE FILE  -->
     
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-step/jquery.steps.css')}}">
+
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/select2/select2.min.css')}}">
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <style class="dark-theme">
+    <style class="dark-theme"> 
         #chart-2 path {
             stroke: #0e1726;
         }
+        #formValidate .wizard > .content {min-height: 25em;}
+        #example-vertical.wizard > .content {min-height: 24.5em;} 
     </style>

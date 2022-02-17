@@ -11,6 +11,7 @@ use App\Http\Controllers\ImportDataController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\CompanySetupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,3 +62,20 @@ Route::get('/bulkpdf', [ImportDataController::class,'bulkpdf']);
 Route::any('/generate-allinone-pdf', [PDFController::class, 'allinone']);
 
 Route::any('delete-courierCompany/{id}', [TableController::class, 'destroyItems']);
+
+///////////////Company setup////////////////
+Route::get('/group', [CompanySetupController::class,'group']);
+Route::get('/group/identity', [CompanySetupController::class,'groupIdentity']);
+Route::get('/group/identity/client', [CompanySetupController::class,'clientIdentity']);
+Route::get('/group/identity/client/sites', [CompanySetupController::class,'clientSites']);
+Route::any('/add-group', [CompanySetupController::class,'addGroup']);
+Route::any('/add-identity', [CompanySetupController::class,'addIdentity']);
+Route::any('/add-identity-client', [CompanySetupController::class,'addIdentityClient']);
+
+Route::any('/creat-client', [CompanySetupController::class,'createClient']);
+
+Route::get('/comapny-group', [CompanySetupController::class,'companygroupTable']);
+
+Route::get('/identity-client-site', [CompanySetupController::class,'identityClientSites']);
+
+Route::any('/add-identity-sites', [CompanySetupController::class,'addIdentitySites']);

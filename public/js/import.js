@@ -24,22 +24,20 @@ $(document).ready(function (e) {
                     beforeSend: function(){
                       $(".indicator-progress").show(); 
                       $(".indicator-label").hide();
-                         
+                      
                        },
                       success: (data) => {
                         $(".indicator-progress").hide();
-                        $(".indicator-label").show();
-                       
-                        $('#new_sender_import').trigger('reset');
+                        $(".indicator-label").show();   
+                        $('#new_item_master').trigger('reset');
                       //this.reset();
                       //console.log(data.ignoredItems);
                       //console.log(data.ignoredcount);
                       if(data.success === true) { 
-                        
-                         
+                   
                           swal("Success!", "File has been imported successfully", "success");
-                        }
-                      
+                          window.location.href = "itemMaster-table";
+                        }       
                       else{
                       swal("Error", data.messages, "error");
                       }
@@ -60,7 +58,7 @@ $(document).ready(function (e) {
            fd.append('group', selected);
             $.ajax({
               type:'POST',
-              url: "/filter-items", 
+              url: "/filter-items",  
               data: fd,
               cache:false, 
               contentType: false,
@@ -82,4 +80,181 @@ $(document).ready(function (e) {
             }
           });
           });
-        });
+///////////////////group///////////
+
+  //alert('h'); die;
+  $('#add-group').submit(function(e) {
+    e.preventDefault();
+  //alert (this); die;
+    $.ajax({
+        url: "/add-group", 
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        type: 'POST',  
+        data:new FormData(this),
+        processData: false,
+        contentType: false,
+                  beforeSend: function(){
+                  $(".indicator-progress").show(); 
+                  $(".indicator-label").hide();
+                   },
+        success: (data) => {
+                    $(".indicator-progress").hide();
+                    $(".indicator-label").show();
+                   $('#sender').trigger('reset');
+                    //this.reset();
+                    //console.log(data.ignoredItems); 
+                    //console.log(data.ignoredcount);
+                    if(data.success === true) { 
+                        swal("Success!", "Data has been Submitted successfully", "success");
+                        
+                      }
+                        else{
+                    swal("Error!", data.messages, "error");
+                    
+                    }
+                    }
+                    
+    }); 
+  });	
+
+  ////////////////Add Identity//////////////
+  $('#add-identity').submit(function(e) {
+    e.preventDefault();
+  //alert (this); die;
+    $.ajax({
+        url: "/add-identity", 
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        type: 'POST',  
+        data:new FormData(this),
+        processData: false,
+        contentType: false,
+                  beforeSend: function(){
+                  $(".indicator-progress").show(); 
+                  $(".indicator-label").hide();
+                   },
+        success: (data) => {
+                    $(".indicator-progress").hide();
+                    $(".indicator-label").show();
+                   $('#sender').trigger('reset');
+                    //this.reset();
+                    //console.log(data.ignoredItems); 
+                    //console.log(data.ignoredcount);
+                    if(data.success === true) { 
+                        swal("Success!", "Data has been Submitted successfully", "success");
+                        
+                      }
+                        else{
+                    swal("Error!", data.messages, "error");
+                    
+                    }
+                    }
+                    
+    }); 
+  });	
+  ////////////Add Identity Client
+  $('#add-identity-client').submit(function(e) {
+    e.preventDefault();
+  //alert (this); die;
+    $.ajax({
+        url: "/add-identity-client", 
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        type: 'POST',  
+        data:new FormData(this),
+        processData: false,
+        contentType: false,
+                  beforeSend: function(){
+                  $(".indicator-progress").show(); 
+                  $(".indicator-label").hide();
+                   },
+        success: (data) => {
+                    $(".indicator-progress").hide();
+                    $(".indicator-label").show();
+                   $('#sender').trigger('reset');
+                    //this.reset();
+                    //console.log(data.ignoredItems); 
+                    //console.log(data.ignoredcount);
+                    if(data.success === true) { 
+                        swal("Success!", "Data has been Submitted successfully", "success");
+                        
+                      }
+                        else{
+                    swal("Error!", data.messages, "error");
+                    
+                    }
+                    }
+                    
+    }); 
+  });	
+
+  ////////////////////////////////////////////////
+ $('#client_sites').submit(function(e) {
+   // alert('h');
+    e.preventDefault();
+  
+    $.ajax({
+        url: "/creat-client", 
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        type: 'POST',  
+        data:new FormData(this),
+        processData: false,
+        contentType: false,
+                  beforeSend: function(){
+                  $(".indicator-progress").show(); 
+                  $(".indicator-label").hide();
+                   },
+        success: (data) => {
+                    $(".indicator-progress").hide();
+                    $(".indicator-label").show();
+                   $('#sender').trigger('reset');
+                    //this.reset();
+                    //console.log(data.ignoredItems); 
+                    //console.log(data.ignoredcount);
+                    if(data.success === true) { 
+                        swal("Success!", "Data has been Submitted successfully", "success");
+                        window.location.href = "/comapny-group";
+                      }
+                        else{
+                    swal("Error!", data.messages, "error");
+                    }
+                    
+                    }       
+    }); 
+  });  
+
+  $('#identity-client-site').submit(function(e) {
+    // alert('h');
+     e.preventDefault();
+   
+     $.ajax({
+         url: "/add-identity-sites", 
+         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+         type: 'POST',  
+         data:new FormData(this),
+         processData: false,
+         contentType: false,
+                   beforeSend: function(){
+                   $(".indicator-progress").show(); 
+                   $(".indicator-label").hide();
+                    },
+         success: (data) => {
+                     $(".indicator-progress").hide();
+                     $(".indicator-label").show();
+                    $('#sender').trigger('reset');
+                     //this.reset();
+                     //console.log(data.ignoredItems); 
+                     //console.log(data.ignoredcount);
+                     if(data.success === true) { 
+                         swal("Success!", "Data has been Submitted successfully", "success");
+                       
+                       }
+                         else{
+                     swal("Error!", data.messages, "error");
+                     }
+                     
+                     }       
+     }); 
+   });  
+});
+
+
+      

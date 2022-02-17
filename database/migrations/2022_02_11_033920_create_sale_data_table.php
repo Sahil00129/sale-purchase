@@ -25,6 +25,8 @@ class CreateSaleDataTable extends Migration
             $table->string('exp_date');
             $table->string('site_id');
             $table->string('document_type');
+            $table->string('identity');
+            $table->string('client');
             $table->timestamps();
         });
     }

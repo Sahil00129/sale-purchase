@@ -21,6 +21,8 @@ class CreateItemMasterTable extends Migration
             $table->string('group')->nullable();
             $table->string('poi')->nullable();
             $table->string('regis_no')->nullable();
+            $table->string('identity');
+            $table->string('client');
             $table->timestamps();
         });
     }

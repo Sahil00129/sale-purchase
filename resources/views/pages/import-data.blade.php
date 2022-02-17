@@ -60,14 +60,34 @@
                                                         <label for="inputState">Import Type</label>
                                                         <select id="itype" class="form-control" name="import_type">
                                                             <option selected disabled>Choose...</option>
-                                                            <option value="6">Site Id</option>
                                                             <option value="1">Item Master</option>
                                                             <option value="2">Sale Data</option>
                                                             <option value="3">Purchase Data</option>
                                                             <option value="4">Stock Transfer</option>
                                                             <option value="5">Opening Balance</option>
+                                                            
                                                         </select>  
                                                    </div>
+                                                   <div class="form-row mb-4">
+                                                
+                                                <label for="inputState">Identity</label>
+                                                <select id="identity" class="form-control" name="identity">
+                                                    <option selected disabled>Choose...</option>
+                                                     @foreach($identitys as $identity)
+                                                     <option value="{{$identity->identity}}">{{$identity->identity}}</option>
+                                                     @endforeach
+                                                </select>  
+                                           </div>
+                                           <div class="form-row mb-4">
+                                                
+                                                <label for="inputState">Client</label>
+                                                <select id="client" class="form-control" name="client">
+                                                    <option selected disabled>Choose...</option>
+                                                     @foreach($clients as $client)
+                                                     <option value="{{$client->client}}">{{$client->client}}</option>
+                                                     @endforeach
+                                                </select>  
+                                           </div>
                                                    <div class="custom-file-container" data-upload-id="myFirstImage">
                                         <label>Upload (Single File) <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
                                        <label class="custom-file-container__custom-file" >
@@ -82,8 +102,8 @@
                                                 <div class="modal-footer">
                                                     <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
                                                     <button type="submit" class="btn btn-primary"><span class="indicator-label">Import</span>
-		                            <span class="indicator-progress" style="display: none;">Please wait...
-	                            	<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></button> 
+		                                          <span class="indicator-progress" style="display: none;">Please wait...
+	                                     	<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></button> 
                                                 </div>
                                              </form>
                                             </div>

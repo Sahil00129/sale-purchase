@@ -45,15 +45,13 @@
                     </a>
                     <ul class="collapse submenu list-unstyled animated fadeInUp" id="app" data-parent="#topAccordion">
                     <li>
-                            <a href="{{url('import-data')}}">Import Master</a>
+                            <a href="{{url('import-data')}}">Sales Import</a>
                         </li>  
                     <li>
                             <a href="#"> Chat </a>
                         </li>
                        
-                        
-                     
-                        
+     
                     </ul>
                 </li>
                 
@@ -90,9 +88,7 @@
                         <li>
                             <a href="{{url('itemMaster-table')}}"> Item Master </a>
                         </li>
-                        <li>
-                            <a href="{{url('warehouse-sites')}}"> Warehouse Sites</a>
-                        </li>
+                       
                         <li>
                             <a href="{{url('saleData-table')}}"> Sales Data </a>
                         </li>
@@ -103,26 +99,32 @@
                     </ul>
                 </li>
 
-                <li class="menu single-menu">
+                <?php 
+                $role = Auth::user()->role; 
+                         if($role == 'super admin'){?> 
+
+                  <li class="menu single-menu">
                     <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
                             
-                            <span>More</span>
+                            <span>Company Setup</span>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </a>
                     <ul class="collapse submenu list-unstyled animated fadeInUp" id="forms"  data-parent="#topAccordion">
                         <li>
-                            <a href="#">link</a>
+                            <a href="{{url('group/identity/client/sites')}}">Group</a>
                         </li>
                         <li>
-                            <a href="#"> Input Group </a>
+                            <a href="{{url('comapny-group')}}">Group Table</a>
                         </li>
                         
-                       
                     </ul>
                 </li>
+                         <?php }else{ ?>
+                 
+                        <?php } ?>
 
                 <li class="menu single-menu menu-extras">
                     <a href="#more" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -132,19 +134,17 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </a>
                     <ul class="collapse submenu list-unstyled animated fadeInUp" id="more" data-parent="#topAccordion">
-                        
+                    @can('user-list')
                         <li>
                             <a href="{{url('users')}}">Users List</a>
                         </li>
+                        @endcan
+                        @can('role-list')
                         <li>
                             <a href="{{url('roles')}}"> Roles</a>
                         </li>
-                        <li>
-                            <a href="map_jvector.html"> Vector Maps</a>
-                        </li>
-                       
-                        
-                        
+                        @endcan
+              
                     </ul>
                 </li>
             </ul>
@@ -168,18 +168,10 @@
 <ul class="navbar-item flex-row nav-dropdowns">
     <li class="nav-item dropdown language-dropdown more-dropdown">
         <div class="dropdown custom-dropdown-icon">
-            <a class="dropdown-toggle btn" href="#" role="button" id="customDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/img/ca.png" class="flag-width" alt="flag">
+            <a class="dropdown-toggle btn" href="#" role="button" id="customDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/img/ca.png')}}" class="flag-width" alt="flag">
             </a>
 
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="customDropdown">
-                <div class="search-dropdown">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <a class="dropdown-item" data-img-value="de" data-value="de" href="javascript:void(0);"><img src="assets/img/de.png" class="flag-width" alt="flag"> German</a>
-                <a class="dropdown-item" data-img-value="jp" data-value="jp" href="javascript:void(0);"><img src="assets/img/jp.png" class="flag-width" alt="flag"> Japanese</a>
-                <a class="dropdown-item" data-img-value="fr" data-value="fr" href="javascript:void(0);"><img src="assets/img/fr.png" class="flag-width" alt="flag"> French</a>
-                <a class="dropdown-item" data-img-value="ca" data-value="en" href="javascript:void(0);"><img src="assets/img/ca.png" class="flag-width" alt="flag"> English</a>
-            </div>
+            
         </div>
     </li>
 
@@ -320,8 +312,7 @@
             <div class="user-profile-section">
                 <div class="media mx-auto">
                     <div class="media-body">
-                        <h5>Shaun Park</h5>
-                        <p>Project Leader</p>
+                        <h5>{{ Auth::user()->role }}</h5>
                     </div>
                 </div>
             </div>

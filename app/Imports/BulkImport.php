@@ -7,6 +7,7 @@ use App\Models\saleData;
 use App\Models\purchaseData;
 use App\Models\StockTransfer;
 use App\Models\StockBalance;
+use App\Models\ClientSites;
 use DB;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToModel;
@@ -19,6 +20,9 @@ class BulkImport implements ToModel,WithHeadingRow
     */
     public function model(array $row)
     {
+       //echo "<pre>"; print_r($row);die;
+      
+
         if($_POST['import_type'] == 1){
             //echo "<pre>"; print_r($row);die;
             $sender = DB::table('item_master')
@@ -32,13 +36,17 @@ class BulkImport implements ToModel,WithHeadingRow
             'pack' => $row['pack'],
             'group'   => $row['item_group'],
             'poi'   => $row['perticulars_of_insecticide'],
-            'regis_no'   => $row['registration_number']
+            'regis_no'   => $row['registration_number'],
+            'identity' => $_POST['identity'],
+            'client' => $_POST['client'],
+            
+           
         ]);
        }
     }
 
        if($_POST['import_type'] == 2){
-        //echo "<pre>"; print_r($row);die;
+       //echo "<pre>"; print_r($_POST);die;
         set_time_limit(2333);
         if (itemMaster::where('item_name', '=', $row['item_name'])->exists()) {
             $string = $row['bill_date'];
@@ -54,6 +62,8 @@ class BulkImport implements ToModel,WithHeadingRow
                 'exp_date' =>  $row['exp_date'],
                 'site_id' =>  $row['site_id'],
                 'document_type' => $row['document_type'],
+                'identity' => $_POST['identity'],
+                'client' => $_POST['client'],
             ]);
          }
 
@@ -78,6 +88,8 @@ class BulkImport implements ToModel,WithHeadingRow
             'quantity_in_kgltr' => $row['quantity_in_kgltr'],
             'site_id' =>  $row['site_id'],
             'document_type' => $row['document_type'],
+            'identity' => $_POST['identity'],
+            'client' => $_POST['client'],
         ]);
         }
        }
@@ -99,6 +111,8 @@ class BulkImport implements ToModel,WithHeadingRow
             'trf_to_site_id' => $row['transfer_to_site'],
             'site_id' => $row['site_id'],
             'document_type' => $row['document_type'],
+            'identity' => $_POST['identity'],
+            'client' => $_POST['client'],
         ]);
         }
        }
@@ -124,6 +138,8 @@ class BulkImport implements ToModel,WithHeadingRow
             'fy'    => $ptt,
             'site_id' => $row['site_id'],
             'opening_balance' => $row['opening_balance'],
+            'identity' => $_POST['identity'],
+            'client' => $_POST['client'],
         ]);
         }
        }

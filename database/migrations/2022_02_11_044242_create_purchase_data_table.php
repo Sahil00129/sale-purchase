@@ -26,6 +26,8 @@ class CreatePurchaseDataTable extends Migration
             $table->string('quantity_in_kgltr');
             $table->string('document_type');
             $table->string('site_id');
+            $table->string('identity');
+            $table->string('client');
             $table->timestamps();
         });
     }

@@ -73,7 +73,7 @@ $(document).ready(function (e) {
                 "sSearchPlaceholder": "Search...",
                "sLengthMenu": "Results :  _MENU_",
             },
-            "pageLength": 5000,
+            "pageLength": 50,
     columns: [
         { "data": "item_name" },
         { "data": "bill_date" },

@@ -10,7 +10,7 @@
                         <nav class="breadcrumb-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0);">Add Sender</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0);">Groped PDF</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -28,7 +28,63 @@
                                 <form method="post" action="{{url('/generate-allinone-pdf') }}" id="allinone" >
                                  @csrf
                                 <div class="widget-content widget-content-area">
-                                   
+                                <div class="form-row mb-4">   
+                                <div class="form-group col-md-4">
+                                        <label for="inputState">Identity</label>
+                                        <select id="identity" name="identity" class="form-control">         
+                                        @foreach($identity as $idty)
+                                            <option value="{{$idty->identity}}">{{$idty->identity}}</option>
+                                        @endforeach 
+                                          </select>
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                        <label for="inputState">Client</label>
+                                        <select id="client" name="client" class="form-control">
+                                        <?php
+                                            $role = Auth::user()->role;
+                                            if($role == 'super admin'){?>
+                                                 @foreach($client as $cl)
+                                                <option value="{{$cl->client}}">{{$cl->client}}</option>
+                                                @endforeach
+                                              </select>
+                                           <?php }else{ ?>
+                                            
+                                             <?php   
+                                             $explodedString = explode(',', $client[0]->client);
+                                             //echo'<pre>'; print_r($client); die;
+                                             ?>
+                                           @foreach($explodedString as $cl)
+                                            <option value="{{$cl}}">{{$cl}}</option>
+                                           @endforeach
+                                          </select>
+                                       <?php  }  ?>
+                                     
+                                           
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                        <label for="inputState">Site</label>
+                                        <select id="siteId" name="site_id" class="form-control">
+                                        <?php
+                                            $role = Auth::user()->role;
+                                            if($role == 'super admin'){?>
+                                                 @foreach($site as $s)
+                                                <option value="{{$s->sites}}">{{$s->sites}}</option>
+                                                @endforeach
+                                              </select>
+                                           <?php }else{  ?>
+                                          <?php 
+                                            $explodedSites = explode(',', $site[0]->sites);
+                                          ?>
+                                            @foreach($explodedSites as $site)
+                                            <option value="{{$site}}">{{$site}}</option>
+                                              @endforeach
+                                              
+                                          </select>
+                                     <?php }  ?>
+                              
+
+                                      </div>
+                                    </div>
                                         <div class="form-row mb-4">
                                             <div class="form-group col-md-6">
                                                 <label for="inputEmail4">From</label>
@@ -41,20 +97,7 @@
                                                 <input type="date" class="form-control" id="toDate" name="toDate" placeholder="" autocomplete="off">
                                             </div>       
                                         </div>
-                                        <div class="form-row mb-4">
-                                <div class="form-group col-md-4">
-                                        <label for="inputState">Site</label>
-                                        <select id="siteId" name="site_id" class="form-control">
-                                          
-                                            @foreach($site as $i)
-                                            <option value="{{$i->site_id}}">{{$i->site_id}}</option>
-                                              @endforeach
-                                              
-                                          </select>
-                                      </div>
-  
-                                      
-                                  </div>
+                                        
                                      <button type="submit" class="btn btn-primary" style="margin-bottom:9px;">Generate PDF</button>
                                      <div class="spinner-border text-primary  align-self-center"  id ="pageloader" style="display: none;"></div>
                                       
@@ -67,8 +110,4 @@
                 </div>
                 </div>
                 
-
-
-
-
 @endsection

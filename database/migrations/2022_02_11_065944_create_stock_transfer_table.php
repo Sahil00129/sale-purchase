@@ -26,6 +26,8 @@ class CreateStockTransferTable extends Migration
             $table->string('trf_to_site_id');
             $table->string('site_id');
             $table->string('document_type');
+            $table->string('identity');
+            $table->string('client');
             $table->timestamps();
         });
     }

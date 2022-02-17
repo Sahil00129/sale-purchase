@@ -18,7 +18,7 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
+                            
                             <th>Name</th>
                             <th>Email</th>
                             <th>Roles</th>
@@ -28,7 +28,7 @@
                     <tbody>
                         @foreach ($data as $key => $user)
                             <tr>
-                                <td>{{ $user->id }}</td>
+                                
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
@@ -43,11 +43,16 @@
                                     @can('user-edit')
                                         <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
                                     @endcan
+                                    <?php 
+                                       
+                                       if($user->role == 'super admin'){?> 
+                                     <?php  }else{  ?>
                                     @can('user-delete')
                                         {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
                                         {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
                                     @endcan
+                                  <?php   }  ?>
                                 </td>
                             </tr>
                         @endforeach

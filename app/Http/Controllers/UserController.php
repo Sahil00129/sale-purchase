@@ -6,6 +6,7 @@ use DB;
 use Hash;
 use App\Models\User;
 use App\Models\Sites;
+use App\Models\ClientSites;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Spatie\Permission\Models\Role;
@@ -44,10 +45,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name','name')->all();
-        $sites = Sites::all();
+        $roles = Role::select('name')->get();
+        //echo'<pre>'; print_r($roles); die;
+        $clients = ClientSites::select('client')->distinct()->get();
+        $identitys = ClientSites::select('identity')->distinct()->get();
+        $sites = ClientSites::select('sites')->distinct()->get();
         //echo'<pre>'; print_r($sites); die;
-        return view('users.create',  ['roles' => $roles ,'sites' => $sites]);
+        return view('users.create',  ['roles' => $roles ,'sites' => $sites, 'clients' => $clients, 'identitys' => $identitys]);
     }
 
     /**
@@ -63,16 +67,30 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
-            'roles' => 'required',
-            'site' => 'required'
+            'role' => 'required',
+            'sites' => 'required',
+            'identity' => 'required',
+            'client' => 'required'
+
         ]);
     
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-        $input['site_id'] = $request->site;
+        $input['sites'] = $request->sites;
+        //$input['client'] =$request->client;
+        $news = $request->input('client');
+        $news = implode(',', $news);
+        $input['client'] = $news;
+
+        $sit = $request->input('sites');
+        $sit = implode(',', $sit);
+        $input['sites'] = $sit;
+
+       //$input['sites'] = json_encode($request->sites);
+        $input['role'] =$request->role;
     
         $user = User::create($input);
-        $user->assignRole($request->input('roles'));
+        $user->assignRole($request->input('role'));
     
         return redirect()->route('users.index')
             ->with('success', 'User created successfully.');

@@ -19,6 +19,8 @@ class CreateStockOpeningTable extends Migration
             $table->string('site_id');
             $table->string('opening_balance');
             $table->date('fy');
+            $table->string('identity');
+            $table->string('client');
             $table->timestamps();
         });
     }
