@@ -51,19 +51,19 @@ $(document).ready(function (e) {
                         }else if(data.import_type == 2) {
                          
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "saleData-table";
+                          window.location.href = "{{URL::to('saleData-table')}}";
                         }else if(data.import_type == 3) {
                          
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "purchaseData-table";
+                          window.location.href = "{{URL::to('purchaseData-table')}}";
                         }else if(data.import_type == 4) {
                          
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "import-data";
+                          window.location.href = "{{URL::to('import-data')}}";
                         }else if(data.import_type == 5) {
                          
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "import-data";
+                          window.location.href = "{{URL::to('import-data')}}";
                          }else{
 
                           swal("Error", data.messages, "error");
