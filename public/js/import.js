@@ -6,9 +6,19 @@ $(document).ready(function (e) {
        var formData = new FormData(this);
        var myfile = jQuery('#myCsv').val();
        var itype = jQuery('#itype').val();
-       if (!itype) {
+       var identity = jQuery('#identity').val();
+       var client = jQuery('#client').val();
+      if (!itype) {
        swal("Error!", "Please select import type", "error");
        return false;
+      }
+    if (!identity) {
+      swal("Error!", "No file, please select identity", "error");
+      return false;
+    }
+    if (!client) {
+      swal("Error!", "No file, please select client", "error");
+      return false;
     }
     if (!myfile) {
       swal("Error!", "No file, please upload an import file", "error");
