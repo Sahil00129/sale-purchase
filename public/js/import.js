@@ -47,7 +47,7 @@ $(document).ready(function (e) {
                         if(data.import_type == 1) { 
                         
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "itemMaster-table";
+                          window.location.href = "{{URL::to('itemMaster-table')}}";
                         }else if(data.import_type == 2) {
                          
                           swal("Success!", "File has been imported successfully", "success");

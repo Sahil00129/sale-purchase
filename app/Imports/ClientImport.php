@@ -3,7 +3,7 @@
 namespace App\Imports;
 
 use App\Models\ClientSites;
-
+use DB;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -15,13 +15,15 @@ class ClientImport implements ToModel,WithHeadingRow
     */
     public function model(array $row)
     {
-        return new ClientSites([
+      
+    
+        return new ClientSites([ 
             'sites'  => $row['sites'],
             'group' => $_POST['group'],
             'identity' => $_POST['identity'],
-            'client' => $_POST['client'],
-           
+            'client' => $_POST['client'],   
             
         ]);
+    
     }
 }

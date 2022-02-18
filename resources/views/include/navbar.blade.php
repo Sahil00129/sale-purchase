@@ -48,7 +48,7 @@
                             <a href="{{url('import-data')}}">Sales Import</a>
                         </li>  
                     <li>
-                            <a href="#"> Chat </a>
+                            <a href="#"> Purchase Import </a>
                         </li>
                     </ul>
                 </li>
