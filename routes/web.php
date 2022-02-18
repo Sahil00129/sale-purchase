@@ -33,7 +33,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // logout route
 Route::get('/logout', [LoginController::class,'logout']);
-
+///////////////User and Roles////////////////////
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('posts', PostController::class);
 });
 
-///////
+/////////////
 Route::get('/import-data', [ImportDataController::class,'importDataView']);
 Route::post('/import', [ImportDataController::class,'importData']);
 
@@ -63,8 +63,8 @@ Route::any('/generate-allinone-pdf', [PDFController::class, 'allinone']);
 
 Route::any('delete-courierCompany/{id}', [TableController::class, 'destroyItems']);
 
-///////////////Company setup////////////////
-Route::get('/group', [CompanySetupController::class,'group']);
+//////////////////Company setup////////////////
+
 Route::get('/group/identity', [CompanySetupController::class,'groupIdentity']);
 Route::get('/group/identity/client', [CompanySetupController::class,'clientIdentity']);
 Route::get('/group/identity/client/sites', [CompanySetupController::class,'clientSites']);
@@ -75,7 +75,6 @@ Route::any('/add-identity-client', [CompanySetupController::class,'addIdentityCl
 Route::any('/creat-client', [CompanySetupController::class,'createClient']);
 
 Route::get('/comapny-group', [CompanySetupController::class,'companygroupTable']);
-
 Route::get('/identity-client-site', [CompanySetupController::class,'identityClientSites']);
-
 Route::any('/add-identity-sites', [CompanySetupController::class,'addIdentitySites']);
+Route::any('/delete-identity/{id}', [CompanySetupController::class, 'destroyIdentity']);

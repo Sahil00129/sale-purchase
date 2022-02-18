@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Dashboard')
+@section('title', 'Company Group')
 @section('content')
 
 <div class="container">
@@ -9,7 +9,7 @@
                         <nav class="breadcrumb-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0);">Company Setup</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0);">Client</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0);">Group</a></li>
                             </ol>
                         </nav>
                        

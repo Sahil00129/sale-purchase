@@ -13,15 +13,14 @@
                     <nav class="breadcrumb-one" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">DataTables</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Groups</a></li>
                             
                         </ol>
                     </nav>
                 </div>
                 
                 <div class="row layout-top-spacing" id="cancel-row">
-                
-                
+                   
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                         <div class="widget-content widget-content-area br-6">
                             <table id="company-group" class="table table-hover non-hover" style="width:100%">
@@ -41,12 +40,12 @@
                                      <td>{{$g->identity}}</td>
                                      <td>{{$g->client}}</td>
                                      <td>{{$g->sites}}</td>
-                                     <td style="color:red;">Delete</td>
+                                     <td><a href="delete-identity/{{$g->id}}" class="btn btn-danger btn-sm">Delete</a> </td>
                                  </tr>
                                  @endforeach
                                 </tbody>
                             </table>
-                        </div>
+                        </div> 
                     </div>
                 </div>
                 </div>

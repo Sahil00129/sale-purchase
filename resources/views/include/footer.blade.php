@@ -94,3 +94,11 @@
     tags: true
 });
 </script>
+
+@if(Session::has('error'))
+<script>
+	swal("oops..", "No PDF to merge!","error");
+	//jQuery('#monthdata').html('No Data For This Month');
+	//$("#monthdata").fadeOut(10000);
+	</script>
+	@endif

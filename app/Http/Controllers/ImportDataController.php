@@ -19,17 +19,20 @@ class ImportDataController extends Controller
     {
       $clients = ClientSites::select('client')->distinct()->get();
       $identitys = ClientSites::select('identity')->distinct()->get();
-        return view('pages.import-data',['clients' => $clients, 'identitys' => $identitys]);
+      return view('pages.import-data',['clients' => $clients, 'identitys' => $identitys]);
     }
   public function importData()
-  {
-    
+  {       
         try
         {     
+          $type = $_POST['import_type'];
+          //echo'<pre>'; print_r($type); die;     
            //echo'<pre>'; print_r($_FILES); die;  
            $identity = $_POST['identity'];
            $client = $_POST['client'];
-            $data = Excel::import(new BulkImport, request()->file('file'));
+           $data = Excel::import(new BulkImport, request()->file('file'));
+            
+            $response['import_type'] = $type;
             $response['success'] = true;
             $response['messages'] = 'Succesfully imported';
             return Response::json($response);
@@ -47,10 +50,8 @@ class ImportDataController extends Controller
  
       if (Auth::check()) 
         {
-          //$site_id = Auth::user()->id;
-         
+          //$site_id = Auth::user()->id;  
           //$role = Auth::user()->role;
-          
           //$role_name = $role->name;
          // echo'<pre>';print_r($site_id->role);die;
           $site_id = Auth::User();

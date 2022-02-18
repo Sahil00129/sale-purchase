@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Dashboard')
+@section('title', 'Impoer Data')
 @section('content')
 
 <!--  BEGIN CONTENT AREA  -->

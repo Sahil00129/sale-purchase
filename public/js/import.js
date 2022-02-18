@@ -1,4 +1,5 @@
 $(document).ready(function (e) {
+
     $('#new_item_master').submit(function(e) {
         //alert('hii');return false;
        e.preventDefault();
@@ -22,30 +23,46 @@ $(document).ready(function (e) {
                     processData: false,
                     contentType: false,
                     beforeSend: function(){
-                      $(".indicator-progress").show(); 
-                      $(".indicator-label").hide();
+                         $(".indicator-progress").show(); 
+                         $(".indicator-label").hide();
                       
                        },
                       success: (data) => {
-                        $(".indicator-progress").hide();
-                        $(".indicator-label").show();   
-                        $('#new_item_master').trigger('reset');
-                      //this.reset();
-                      //console.log(data.ignoredItems);
-                      //console.log(data.ignoredcount);
-                      if(data.success === true) { 
-                   
+                          $(".indicator-progress").hide();
+                          $(".indicator-label").show();   
+                          $('#new_item_master').trigger('reset');
+                        //this.reset();
+                        //console.log(data.ignoredItems);
+                        //console.log(data.ignoredcount);
+                        if(data.import_type == 1) { 
+                        
                           swal("Success!", "File has been imported successfully", "success");
                           window.location.href = "itemMaster-table";
-                        }       
-                      else{
-                      swal("Error", data.messages, "error");
+                        }else if(data.import_type == 2) {
+                         
+                          swal("Success!", "File has been imported successfully", "success");
+                          window.location.href = "saleData-table";
+                        }else if(data.import_type == 3) {
+                         
+                          swal("Success!", "File has been imported successfully", "success");
+                          window.location.href = "purchaseData-table";
+                        }else if(data.import_type == 4) {
+                         
+                          swal("Success!", "File has been imported successfully", "success");
+                          window.location.href = "import-data";
+                        }else if(data.import_type == 5) {
+                         
+                          swal("Success!", "File has been imported successfully", "success");
+                          window.location.href = "import-data";
+                         }else{
+
+                          swal("Error", data.messages, "error");
                       }
                       
                       }
               });
           });
-          ///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
           $.ajaxSetup({
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -80,8 +97,7 @@ $(document).ready(function (e) {
             }
           });
           });
-///////////////////group///////////
-
+/////////////////////////////group////////////////////
   //alert('h'); die;
   $('#add-group').submit(function(e) {
     e.preventDefault();
@@ -112,8 +128,7 @@ $(document).ready(function (e) {
                     swal("Error!", data.messages, "error");
                     
                     }
-                    }
-                    
+                    }        
     }); 
   });	
 
@@ -146,27 +161,27 @@ $(document).ready(function (e) {
                         else{
                     swal("Error!", data.messages, "error");
                     
-                    }
+                     }
                     }
                     
     }); 
   });	
   ////////////Add Identity Client
   $('#add-identity-client').submit(function(e) {
-    e.preventDefault();
-  //alert (this); die;
-    $.ajax({
-        url: "/add-identity-client", 
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        type: 'POST',  
-        data:new FormData(this),
-        processData: false,
-        contentType: false,
+        e.preventDefault(); 
+        //alert (this); die;
+        $.ajax({
+             url: "/add-identity-client", 
+             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+             type: 'POST',  
+             data:new FormData(this),
+             processData: false,
+             contentType: false,
                   beforeSend: function(){
                   $(".indicator-progress").show(); 
                   $(".indicator-label").hide();
                    },
-        success: (data) => {
+         success: (data) => {
                     $(".indicator-progress").hide();
                     $(".indicator-label").show();
                    $('#sender').trigger('reset');
@@ -181,7 +196,7 @@ $(document).ready(function (e) {
                     swal("Error!", data.messages, "error");
                     
                     }
-                    }
+          }
                     
     }); 
   });	
@@ -202,10 +217,10 @@ $(document).ready(function (e) {
                   $(".indicator-progress").show(); 
                   $(".indicator-label").hide();
                    },
-        success: (data) => {
+               success: (data) => {
                     $(".indicator-progress").hide();
                     $(".indicator-label").show();
-                   $('#sender').trigger('reset');
+                    $('#sender').trigger('reset');
                     //this.reset();
                     //console.log(data.ignoredItems); 
                     //console.log(data.ignoredcount);

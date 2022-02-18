@@ -168,7 +168,7 @@ class PDFController extends Controller
                     }
              }            
  
-       $dd .= ' <div class="header">
+       $dd .= '<div class="header">
                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
                              <tr>
                                  <td style="width: 30%;">
@@ -393,6 +393,7 @@ class PDFController extends Controller
                              <td style="width:3.10%"></td>
                          </tr>';
                          }   
+ 
                          /*********************************** Transfershpt out Calculation  **************************************/   
  
                          if($sldata['document_type'] == 'TransferShpt') {
@@ -545,12 +546,14 @@ class PDFController extends Controller
   public function allinone()
   {
      set_time_limit(24000);
-     $site_id = $_POST['site_id'];
+     $identity = $_POST['identity'];
+     $client = $_POST['client'];
+     $site_id = $_POST['site_id']; 
      $fromDate = $_POST['fromDate'];
      $itemsList =  DB::table('item_master')->select('item_name')->get();
-     $saleitems =  DB::table('sale_data')->select('item_name')->distinct()->where('site_id', $site_id)->get();
-     $puritems =  DB::table('purchase_data')->select('item_name')->distinct()->where('site_id', $site_id)->get();
-     $trfitems =  DB::table('stock_transfer')->select('item_name')->distinct()->where('site_id', $site_id)->get();
+     $saleitems =  DB::table('sale_data')->select('item_name')->distinct()->where('site_id', $site_id)->where('client',$client)->where('identity',$identity)->get();
+     $puritems =  DB::table('purchase_data')->select('item_name')->distinct()->where('site_id', $site_id)->where('client',$client)->where('identity',$identity)->get();
+     $trfitems =  DB::table('stock_transfer')->select('item_name')->distinct()->where('site_id', $site_id)->where('client',$client)->where('identity',$identity)->get();
      $sl = json_decode(json_encode($saleitems), true);
      $pr = json_decode(json_encode($puritems), true);
      $tr = json_decode(json_encode($trfitems), true);
@@ -562,16 +565,16 @@ class PDFController extends Controller
      $pdf_name = array();
      foreach($finalItems as $item){
          $i++;
-         $getGrp =  DB::table('item_master')->select('group', 'poi', 'regis_no', 'pack')->where('item_name', $item)->get();;
+         $getGrp =  DB::table('item_master')->select('group', 'poi', 'regis_no', 'pack')->where('item_name', $item)->where('client',$client)->where('identity',$identity)->get();;
          $rs = json_decode(json_encode($getGrp), true);
          $getGP = call_user_func_array('array_merge', $rs);
          //echo "<pre>"; print_r($getGP);die;
 
-        $saleData = saleData::where('item_name', $item)->where('site_id', $site_id)->whereBetween('bill_date',[$_POST['fromDate'],$_POST['toDate']])->get();
+        $saleData = saleData::where('item_name', $item)->where('site_id', $site_id)->where('client',$client)->where('identity',$identity)->whereBetween('bill_date',[$_POST['fromDate'],$_POST['toDate']])->get();
 
-        $purchaseData = purchaseData::where('item_name', $item)->where('site_id', $site_id)->whereBetween('bill_date',[$_POST['fromDate'],$_POST['toDate']])->get();
+        $purchaseData = purchaseData::where('item_name', $item)->where('site_id', $site_id)->where('client',$client)->where('identity',$identity)->whereBetween('bill_date',[$_POST['fromDate'],$_POST['toDate']])->get();
 
-        $stock_trf = StockTransfer::where('item_name', $item)->where('site_id', $site_id)->whereBetween('bill_date',[$_POST['fromDate'],$_POST['toDate']])->get();
+        $stock_trf = StockTransfer::where('item_name', $item)->where('site_id', $site_id)->where('client',$client)->where('identity',$identity)->whereBetween('bill_date',[$_POST['fromDate'],$_POST['toDate']])->get();
 
          $sales = json_decode(json_encode($saleData), true);
          $purchase = json_decode(json_encode($purchaseData), true);
@@ -629,7 +632,7 @@ class PDFController extends Controller
                           $lastDay = $date->format('Y-m-d');
                           $fy_in =  date('Y', strtotime('-1 year'));
                           $fy_end_dt = $fy_in."-03-31";
-                          $opening = DB::table('stock_opening')->where('item_name', $inm)->where('site_id',  $site_id)->whereDate('fy', '<', $opb_date)->get();
+                          $opening = DB::table('stock_opening')->where('item_name', $inm)->where('site_id',  $site_id)->where('client',$client)->where('identity',$identity)->whereDate('fy', '<', $opb_date)->get();
                           @$simplyfy = json_decode(json_encode($opening), true);
                           if(@$simplyfy[0]['opening_balance'] == "-"){
                             $opening_balance = 0;
@@ -640,11 +643,11 @@ class PDFController extends Controller
 
           /*********************************** Get opening balance from Sale Data        *****************************************/
 
-                $preData['sale']= DB::table('sale_data')->where('item_name', $inm)->where('site_id', $site_id)->whereBetween('bill_date',[$opb_date,$lastDay])->get();
+                $preData['sale']= DB::table('sale_data')->where('item_name', $inm)->where('site_id', $site_id)->where('client',$client)->where('identity',$identity)->whereBetween('bill_date',[$opb_date,$lastDay])->get();
 
-                $preData['purchase']= DB::table('purchase_data')->where('item_name', $inm)->where('site_id', $site_id)->whereBetween('bill_date',[$opb_date,$lastDay])->get();
+                $preData['purchase']= DB::table('purchase_data')->where('item_name', $inm)->where('site_id', $site_id)->where('client',$client)->where('identity',$identity)->whereBetween('bill_date',[$opb_date,$lastDay])->get();
 
-                $preData['stock_trf']= DB::table('stock_transfer')->where('item_name', $inm)->where('site_id', $site_id)->whereBetween('bill_date',[$opb_date,$lastDay])->get();
+                $preData['stock_trf']= DB::table('stock_transfer')->where('item_name', $inm)->where('site_id', $site_id)->where('client',$client)->where('identity',$identity)->whereBetween('bill_date',[$opb_date,$lastDay])->get();
 
                 $array = json_decode(json_encode($preData), true);
                 $saleData = $array['sale'];
@@ -981,7 +984,7 @@ class PDFController extends Controller
 
         /*********************************** Purchase Return Calculation  **************************************/ 
 
-          if($sldata['document_type'] == 'PurchCreditMemo') {
+      if($sldata['document_type'] == 'PurchCreditMemo') {
               $tocl = (int)$sldata['quantity_in_kgltr'];
               @$last_balance -= $tocl;   
               $prstock = $last_balance + $tocl; 
@@ -1037,9 +1040,7 @@ class PDFController extends Controller
                           <td style="width:8.10%"></td>
                           <td style="width:3.10%"></td>
                       </tr>';
-
           }                                             
-
               /*********************************** Calculate last balance for flag **************************************/ 
 
                       if(++$i === $numItems) {
@@ -1059,7 +1060,7 @@ class PDFController extends Controller
            }
           $pdfMerger = PDFMerger::init(); 
                        foreach($pdf_name as $pdf){
-                              $pdfMerger->addPDF(public_path().'/pdf/'.$pdf);
+                       $pdfMerger->addPDF(public_path().'/pdf/'.$pdf);
                       }
           $pdfMerger->merge();
           $pdfMerger->save("Register.pdf", "browser");

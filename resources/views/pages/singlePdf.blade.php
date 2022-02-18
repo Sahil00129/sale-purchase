@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Dashboard')
+@section('title', 'Single Pdf')
 @section('content')
 <?php
   //$c = (json_decode($client));
@@ -48,7 +48,7 @@
                                       <div class="form-group col-md-4">
                                         <label for="inputState">Client</label>
                                         <select id="client" name="client" class="form-control">
-                                            
+
                                             <?php
                                             $role = Auth::user()->role;
                                             if($role == 'super admin'){?>
@@ -72,6 +72,7 @@
                                       <div class="form-group col-md-4">
                                         <label for="inputState">Site</label>
                                         <select id="siteId" name="site_id" class="form-control">
+
                                             <?php
                                             $role = Auth::user()->role;
                                             if($role == 'super admin'){?>
@@ -88,7 +89,7 @@
                                               @endforeach
                                               
                                           </select>
-                                     <?php }  ?>
+                                     <?php } ?>
 
                                       </div>
                                     </div>
@@ -127,9 +128,8 @@
                                   </div>
                                      <button type="submit" class="btn btn-primary">Get Data</button> 
                                      <div class="spinner-border text-primary  align-self-center"  id ="singleloader" style="display: none;"></div>
-                                      
+
                                     </form>
-       
                                 </div>
                             </div>
                         </div>
@@ -137,5 +137,4 @@
                 </div>
                 </div>
                 
-
 @endsection

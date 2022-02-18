@@ -13,6 +13,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ClientImport;
 use App\Imports\BulkImport;
 use Response;
+use Session;
 
 class CompanySetupController extends Controller
 {
@@ -175,6 +176,17 @@ class CompanySetupController extends Controller
        return Response::json($response);
       
        
+   }
+
+   public function destroyIdentity($identity_id)
+   {
+
+       $identity = ClientSites::find($identity_id); 
+       //Session::flash('delete', 'deleted');
+       $identity->delete();
+       Session::flash('deleted', 'Data has been deleted');
+       return redirect()->back();
+    
    }
 
 }
