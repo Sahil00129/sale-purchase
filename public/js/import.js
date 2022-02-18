@@ -47,23 +47,23 @@ $(document).ready(function (e) {
                         if(data.import_type == 1) { 
                         
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "{{URL::to('itemMaster-table')}}";
+                          window.location.href = "itemMaster-table";
                         }else if(data.import_type == 2) {
                          
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "{{URL::to('saleData-table')}}";
+                          window.location.href = "saleData-table";
                         }else if(data.import_type == 3) {
                          
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "{{URL::to('purchaseData-table')}}";
+                          window.location.href = "purchaseData-table";
                         }else if(data.import_type == 4) {
                          
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "{{URL::to('import-data')}}";
+                          window.location.href = "import-data";
                         }else if(data.import_type == 5) {
                          
                           swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "{{URL::to('import-data')}}";
+                          window.location.href = "import-data";
                          }else{
 
                           swal("Error", data.messages, "error");
