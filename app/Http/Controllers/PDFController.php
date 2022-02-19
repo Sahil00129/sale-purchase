@@ -8,6 +8,7 @@ use PDF;
 use App\Models\saleData;
 use App\Models\purchaseData;
 use App\Models\StockTransfer;
+use Session;
 use LynX39\LaraPdfMerger\Facades\PdfMerger; 
 
 class PDFController extends Controller
@@ -28,6 +29,7 @@ class PDFController extends Controller
        
         $i = 0;
         $pdf_name = array();
+        
         foreach($items as $item){
             $i++;
             $getGrp =  DB::table('item_master')->select('group', 'poi', 'regis_no', 'pack')->where('item_name', $item)->get();;
@@ -48,6 +50,10 @@ class PDFController extends Controller
             $stock = json_decode(json_encode($stock_trf), true);
             $inm = $item;
             $res = array_merge($sales, $purchase, $stock);
+            if(empty($res)){
+                Session::flash('error', 'No PDF');
+                return redirect()->back();
+                 }else{
            //echo "<pre>"; print_r($res);die;
             $priorities = ["SalesCreditMemo", "Purchase Invoice", "TransferRcpt", "SalesInvoice", "TransferShpt", "PurchCreditMemo"];
             
@@ -532,6 +538,7 @@ class PDFController extends Controller
              $pdf_name[] = 'item_'.$item.''.$flag.'.pdf';
                 }
               }
+            }
              $pdfMerger = PDFMerger::init(); 
                           foreach($pdf_name as $pdf){
                                  $pdfMerger->addPDF(public_path().'/pdf/'.$pdf);
