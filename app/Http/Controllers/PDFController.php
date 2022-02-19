@@ -50,10 +50,7 @@ class PDFController extends Controller
             $stock = json_decode(json_encode($stock_trf), true);
             $inm = $item;
             $res = array_merge($sales, $purchase, $stock);
-            if(empty($res)){
-                Session::flash('error', 'No PDF');
-                return redirect()->back();
-                 }else{
+         
            //echo "<pre>"; print_r($res);die;
             $priorities = ["SalesCreditMemo", "Purchase Invoice", "TransferRcpt", "SalesInvoice", "TransferShpt", "PurchCreditMemo"];
             
@@ -537,7 +534,7 @@ class PDFController extends Controller
              $pdf->save(public_path().'/pdf/item_'.$item.''.$flag.'.pdf')->stream('item_'.$item.''.$flag.'.pdf');
              $pdf_name[] = 'item_'.$item.''.$flag.'.pdf';
                 }
-              }
+              
             }
              $pdfMerger = PDFMerger::init(); 
                           foreach($pdf_name as $pdf){
