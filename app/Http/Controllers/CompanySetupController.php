@@ -128,6 +128,7 @@ class CompanySetupController extends Controller
            $group = $_POST['group'];
            $identity = $_POST['identity'];
            $client = $_POST['client'];
+           
            $data = Excel::import(new ClientImport, request()->file('file'));
            $response['success'] = true;
            $response['messages'] = 'Succesfully imported';

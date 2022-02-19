@@ -20,7 +20,6 @@
                 <table class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
                             <th>Name</th>
                             <th width="280px">Action</th>
                         </tr>
@@ -28,7 +27,7 @@
                     <tbody>
                         @foreach ($data as $key => $role)
                             <tr>
-                                <td>{{ $role->id }}</td>
+                                
                                 <td>{{ $role->name }}</td>
                                 <td>
                                     <a class="btn btn-success" href="{{ route('roles.show',$role->id) }}">Show</a>
