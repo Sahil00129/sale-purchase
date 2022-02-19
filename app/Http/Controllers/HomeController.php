@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('pages.dashboard');
     }
+
+    public function maintenance()
+    {
+        return view('pages.maintenance');
+    }
 }

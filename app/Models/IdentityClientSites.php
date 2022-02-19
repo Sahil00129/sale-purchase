@@ -12,4 +12,5 @@ class IdentityClientSites extends Model
     protected $fillable = [
         'identity','group','client','sites'
     ];
+    
 }

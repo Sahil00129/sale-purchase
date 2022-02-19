@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth']], function() {
 /////////////
 Route::get('/import-data', [ImportDataController::class,'importDataView']);
 Route::post('/import', [ImportDataController::class,'importData']);
+Route::get('/maintenance', [HomeController::class,'maintenance']);
 
 Route::get('/itemMaster-table', [TableController::class,'itemMasterTable']);
 Route::get('/saleData-table', [TableController::class,'saleDataTable']);

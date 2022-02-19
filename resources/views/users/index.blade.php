@@ -1,6 +1,10 @@
 @extends('layouts.main')
 @section('title', 'Dashboard')
 @section('content')
+<link rel="stylesheet" type="text/css" href="plugins/table/datatable/datatables.css">
+   
+    <link rel="stylesheet" type="text/css" href="plugins/table/datatable/dt-global_style.css">
+    <link rel="stylesheet" type="text/css" href="plugins/table/datatable/custom_dt_custom.css">
 <div class="container">
     <div class="justify-content-center">
         @if (\Session::has('success'))

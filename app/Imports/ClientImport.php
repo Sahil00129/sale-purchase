@@ -15,15 +15,13 @@ class ClientImport implements ToModel,WithHeadingRow
     */
     public function model(array $row)
     {
-      
-    
+     
         return new ClientSites([ 
             'sites'  => $row['sites'],
             'group' => $_POST['group'],
             'identity' => $_POST['identity'],
-            'client' => $_POST['client'],   
-            
-        ]);
+            'client' => $_POST['client'],          
+     ]);
     
     }
 }
