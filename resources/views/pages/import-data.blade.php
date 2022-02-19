@@ -26,7 +26,7 @@
                                     <div class="row">
                                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
                                         <p class="mb-1" style="text-align: center; font-size: 20px;
-                                         font-weight: 800;">Upload Data</p>
+                                         font-weight: 800; margin-top: 10px;">Upload Data</p>
                                         </div>
                                     </div>
                                 </div>

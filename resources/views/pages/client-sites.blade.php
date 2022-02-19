@@ -34,10 +34,8 @@
                                         <section>
                                   <div class="form-row mb-4">
                                  <div class="form-group col-md-10">
-                                        <label for="inputState">Group</label>
-                                        <select id="group" name="group" class="form-control"> 
-                                            <option value="Frontiers Group" selected>Frontiers Group</option>
-                                            </select>
+                                 <label for="inputEmail4">Group</label>
+                                             <input type="text" class="form-control" id="group" placeholder="" name="group" autocomplete="off">
                                     </div>
                                     </div>
 
