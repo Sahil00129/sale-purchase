@@ -14,8 +14,17 @@ class AjaxController extends Controller
          if ($request->ajax()) {
             $sales = saleData::select('*');
             //echo'<pre>'; print_r($sales); die;
-            return Datatables::of($sales)->make(true);
-         }
+            return Datatables::of($sales) ->addIndexColumn()
+           
+            ->addColumn('bill_date', function($row)
+              {
+                 $date = date("d-m-Y", strtotime($row->bill_date));
+                 //echo'<pre>'; print_r($date); die;
+                 return $date;
+              })
+            ->rawColumns(['action'])
+            ->make(true);
+        }
 
         return view('pages.salesData-table');
     }
