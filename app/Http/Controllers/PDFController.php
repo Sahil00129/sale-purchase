@@ -1076,5 +1076,4 @@ class PDFController extends Controller
           $file = new Filesystem;
           $file->cleanDirectory('pdf');
 }  
-
 }

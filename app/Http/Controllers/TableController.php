@@ -44,5 +44,10 @@ class TableController extends Controller
        Session::flash('deleted', 'Data has been deleted');
        return redirect()->back();
     }
+
+    public function openingTable()
+    {
+        return view ('pages.opening-table');
+    }
     
 }

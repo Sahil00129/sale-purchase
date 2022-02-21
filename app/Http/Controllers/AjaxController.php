@@ -32,10 +32,31 @@ class AjaxController extends Controller
     {
          if ($request->ajax()) {
             $purchase = purchaseData::select('*');
-            return Datatables::of($purchase)->make(true);
-         }
+            return Datatables::of($purchase) ->addIndexColumn()
+           
+            ->addColumn('bill_date', function($row)
+              {
+                 $date = date("d-m-Y", strtotime($row->bill_date));
+                 //echo'<pre>'; print_r($date); die;
+                 return $date;
+              })
+            ->rawColumns(['action'])
+            ->make(true);
+        }
 
         return view('pages.purchaseData-table');
     }
+
+    public function getopeningServerSide(Request $request)
+    {
+         if ($request->ajax()) {
+            $opening = StockBalance::select('*');
+            //ech
+            return Datatables::of($opening)->make(true);
+         }
+
+        return view('pages.opening-table');
+    }
+
 
 }
