@@ -25,7 +25,7 @@
                 
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <table>
-                    <tr id="filters">
+             <!--       <tr id="filters">
                     <th>Item name</th>
 							    	<th>Bill Date</th>
 							    	<th>Vendor Name</th>
@@ -35,7 +35,7 @@
                                     <th>Qty in kgltr</th>
                                     <th>Doc Type</th>
 							</tr>
-                    </table> 
+                    </table> -->
                         <div class="widget-content widget-content-area br-6">
                             <table id="purchaseData" class="table table-hover non-hover" style="width:100%">
                                 <thead>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\saleData;
 use App\Models\purchaseData;
+use App\Models\StockBalance;
+use App\Models\StockTransfer;
 use DataTables;
 
 class AjaxController extends Controller
@@ -40,7 +42,12 @@ class AjaxController extends Controller
                  //echo'<pre>'; print_r($date); die;
                  return $date;
               })
-            ->rawColumns(['action'])
+              ->addColumn('vendor_invoice_date', function($row)
+              {
+                 $vdate = date("d-m-Y", strtotime($row->vendor_invoice_date));
+                 //echo'<pre>'; print_r($date); die;
+                 return $vdate;
+              })
             ->make(true);
         }
 
@@ -52,11 +59,30 @@ class AjaxController extends Controller
          if ($request->ajax()) {
             $opening = StockBalance::select('*');
             //ech
-            return Datatables::of($opening)->make(true);
-         }
+            return Datatables::of($opening) ->addIndexColumn()
+           
+            ->addColumn('fy', function($row)
+              {
+                 $date = date("d-m-Y", strtotime($row->fy));
+                 //echo'<pre>'; print_r($date); die;
+                 return $date;
+              })
+            ->rawColumns(['action'])
+            ->make(true);
+        }
 
         return view('pages.opening-table');
     }
 
+    public function getstockTransferServerSide(Request $request)
+    {
+         if ($request->ajax()) {
+            $transfer = StockTransfer::select('*');
+
+            return Datatables::of($transfer)->make(true);
+         }
+
+        return view('pages.opening-table');
+    }
 
 }

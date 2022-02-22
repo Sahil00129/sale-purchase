@@ -50,11 +50,13 @@ Route::get('/itemMaster-table', [TableController::class,'itemMasterTable']);
 Route::get('/saleData-table', [TableController::class,'saleDataTable']);
 Route::get('/purchaseData-table', [TableController::class,'purchaseDataTable']);
 Route::get('/warehouse-sites', [TableController::class,'warehouseSite']);
-//Route::get('/openingData-table', [TableController::class,'openingTable']);
+Route::get('/openingData-table', [TableController::class,'openingTable']);
+Route::get('/stockTransfer-table', [TableController::class,'stockTransferTable']);
 
 Route::get('sales-data-request', [AjaxController::class,'getServerSide']);
 Route::get('purhase-data-request', [AjaxController::class,'getpurchaseServerSide']);
-//Route::get('opening-data-request', [AjaxController::class,'getopeningServerSide']);
+Route::get('opening-data-request', [AjaxController::class,'getopeningServerSide']);
+Route::get('stockTransfer-data-request', [AjaxController::class,'getstockTransferServerSide']);
 
 Route::get('/get-pdf', [ImportDataController::class,'getsinglepdf']);
 Route::any('/generate-pdf', [PDFController::class, 'generatePDF']);

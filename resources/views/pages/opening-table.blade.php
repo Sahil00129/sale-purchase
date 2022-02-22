@@ -28,9 +28,9 @@
                             <table id="opening" class="table table-hover non-hover" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>ITEM NAME</th>
-							         	<th>BILL DATE</th>
-								        <th>SITE ID</th>
+                                        <th>Item Name</th>
+							         	<th>SITE ID</th>
+								        <th>Opening Balance</th>
                                         <th>FY</th>
                                     </tr>
                                 </thead>

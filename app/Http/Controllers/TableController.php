@@ -50,4 +50,8 @@ class TableController extends Controller
         return view ('pages.opening-table');
     }
     
+    public function stockTransferTable()
+    {
+        return view ('pages.stockTransfer-table');
+    }
 }

@@ -23,35 +23,20 @@
                 
                 
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
-              <!--      <table>  -->
-						<!--begin::Table head-->
-							<!--begin::Table row-->
-						<!--	<tr id="filters">
-                            <th>ITEM NAME</th>
-							         	<th>BILL NO</th>
-								        <th>BILL DATE</th>
-                                        <th>SALE TO CUSTOMER</th>
-                                        <th>QTY KGLTR</th>
-                                        <th>DOC TYPE</th>
-							</tr> -->
-							<!--end::Table row-->
-                <!--   </table>  -->
+                   
                         <div class="widget-content widget-content-area br-6">
-                            <table id="salesData" class="table table-hover non-hover" style="width:100%">
+                            <table id="stock_transfer" class="table table-hover non-hover" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>ITEM NAME</th>
-							         	<th>BILL NO</th>
-								        <th>BILL DATE</th>
-                                        <th>SALE TO CUSTOMER</th>
-                                        <th>QTY KGLTR</th>
-                                        <th>DOC TYPE</th>
-								       
+                                        <th>Item Name</th>
+							         	<th>Bill Date</th>
+								        <th>Bill No</th>
+                                        <th>Quantity In Kgltr</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
-                                 //   echo'<pre>'; print_r($list); die;
+                                  //echo'<pre>'; print_r($list); die;
                                    ?>
                                 </tbody>
                             </table>
@@ -60,5 +45,6 @@
 
                 </div>
                 </div>
+
 
 @endsection
