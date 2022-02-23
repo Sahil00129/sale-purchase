@@ -15,6 +15,11 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="{{asset('plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/dashboard/dash_2.css')}}" rel="stylesheet" type="text/css" />
+
+     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+     <link href="{{asset('plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/widgets/modules-widgets.css')}}">    
+
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
      <!--  BEGIN CUSTOM STYLE FILE  -->
     

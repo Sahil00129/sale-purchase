@@ -1,9 +1,6 @@
 @extends('layouts.main')
 @section('title', 'Dashboard')
 @section('content')
-<?php
-//echo'<pre>'; print_r($latestsale->bill_date); die;
-?>
 <div class="layout-px-spacing">
 
 <div class="page-header">
@@ -25,21 +22,152 @@
 
 <div class="row layout-top-spacing">
 
-    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-    <div class="card" style="padding: 20px;">
-            <div class="widget-heading">
-                <h6 class="value">Last Date Of Uploaded Data</h6>        
-            </div><br>
-            <div class="w-chart">
-                <p>Sales</p><?php echo $latestsale->bill_date; ?>
-                <p>Purchase</p><?php echo $latestpurchase->bill_date; ?>
-                <p>Transfer</p>
-                
-            </div>
-</div>
-    </div>
+<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+                        <div class="widget widget-table-one">
+                            <div class="widget-heading">
+                                <h5 class="">Last Date Of Uploaded Data</h5>
+                                <div class="task-action">
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle" href="#" role="button" id="pendingTask" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                        </a>
 
-   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="pendingTask" style="will-change: transform;">
+                                            <a class="dropdown-item" href="javascript:void(0);">View Report</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Edit Report</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Mark as Done</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="widget-content">
+
+                                <div class="transactions-list t-info">
+                                    <div class="t-item">
+                                        <div class="t-company-name">
+                                            <div class="t-icon">
+                                                <div class="avatar avatar-xl">
+                                                    <span class="avatar-title">SP</span>
+                                                </div>
+                                            </div>
+                                            <div class="t-name">
+                                                <h4>Sales</h4>
+                                                  
+                                                <p class="meta-date"><?php echo($latestsale->bill_date);?></p>
+                                            </div>
+                                        </div>
+                                        <div class="t-rate rate-inc">
+                                            <p><span>+$36.11</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="transactions-list">
+                                    <div class="t-item">
+                                        <div class="t-company-name">
+                                            <div class="t-icon">
+                                                <div class="icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                                </div>
+                                            </div>
+                                            <div class="t-name">
+                                                <h4>Purchase</h4>
+                                                <p class="meta-date"><?php echo($latestpurchase->bill_date);?></p>
+                                            </div>
+
+                                        </div>
+                                        <div class="t-rate rate-dec">
+                                            <p><span>-$16.44</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="transactions-list">
+                                    <div class="t-item">
+                                        <div class="t-company-name">
+                                            <div class="t-icon">
+                                                <div class="avatar avatar-xl">
+                                                    <span class="avatar-title">AD</span>
+                                                </div>
+                                            </div>
+                                            <div class="t-name">
+                                                <h4>Transfer</h4>
+                                                <p class="meta-date">31 Jan 1:00PM</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="t-rate rate-inc">
+                                            <p><span>+$66.44</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="transactions-list t-secondary">
+                                    <div class="t-item">
+                                        <div class="t-company-name">
+                                            <div class="t-icon">
+                                                <div class="icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                                </div>
+                                            </div>
+                                            <div class="t-name">
+                                                <h4>Netflix</h4>
+                                                <p class="meta-date">02 Feb 1:00PM</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="t-rate rate-dec">
+                                            <p><span>-$32.00</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="transactions-list t-info">
+                                    <div class="t-item">
+                                        <div class="t-company-name">
+                                            <div class="t-icon">
+                                                <div class="avatar avatar-xl">
+                                                    <span class="avatar-title">DA</span>
+                                                </div>
+                                            </div>
+                                            <div class="t-name">
+                                                <h4>Daisy Anderson</h4>
+                                                <p class="meta-date">15 Feb 1:00PM</p>
+                                            </div>
+                                        </div>
+                                        <div class="t-rate rate-inc">
+                                            <p><span>+$10.08</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="transactions-list">
+                                    <div class="t-item">
+                                        <div class="t-company-name">
+                                            <div class="t-icon">
+                                                <div class="avatar avatar-xl">
+                                                    <span class="avatar-title">OG</span>
+                                                </div>
+                                            </div>
+                                            <div class="t-name">
+                                                <h4>Oscar Garner</h4>
+                                                <p class="meta-date">20 Feb 1:00PM</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="t-rate rate-dec">
+                                            <p><span>-$22.00</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+ <!--   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
         <div class="widget widget-card-four">
             <div class="widget-content">
                 <div class="w-header">
@@ -85,7 +213,7 @@
         </div>
     </div>
     
-  <!--  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
         <div class="widget widget-account-invoice-two">
             <div class="widget-content">
                 <div class="account-box">
@@ -382,7 +510,7 @@
                 </div>
             </div>
         </div>
-    </div>  - -->
+    </div>   -->
   
 
 </div>
