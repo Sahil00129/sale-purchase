@@ -48,7 +48,7 @@
                                         <div class="t-company-name">
                                             <div class="t-icon">
                                                 <div class="avatar avatar-xl">
-                                                    <span class="avatar-title">SP</span>
+                                                    <span class="avatar-title">S</span>
                                                 </div>
                                             </div>
                                             <div class="t-name">
@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="t-rate rate-inc">
                                             <?php $date = date("d-m-Y", strtotime($latestsale->bill_date)); ?>
-                                            <p><span><?php echo($date);?></span></p>
+                                            <p><span style="color:green;"><?php echo($date);?></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -68,8 +68,8 @@
                                     <div class="t-item">
                                         <div class="t-company-name">
                                             <div class="t-icon">
-                                                <div class="icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                            <div class="avatar avatar-xl">
+                                                    <span class="avatar-title">p</span>
                                                 </div>
                                             </div>
                                             <div class="t-name">
@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="t-rate rate-dec">
                                         <?php $pdate = date("d-m-Y", strtotime($latestpurchase->bill_date)); ?>
-                                            <p><span><?php echo($pdate);?></span></p>
+                                            <p><span style="color:green;"><?php echo($pdate);?></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -89,8 +89,8 @@
                                     <div class="t-item">
                                         <div class="t-company-name">
                                             <div class="t-icon">
-                                                <div class="avatar avatar-xl">
-                                                    <span class="avatar-title">AD</span>
+                                            <div class="avatar avatar-xl">
+                                                    <span class="avatar-title">ST</span>
                                                 </div>
                                             </div>
                                             <div class="t-name">
@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="t-rate rate-inc">
                                         <?php $tdate = date("d-m-Y", strtotime($latesttransfer->bill_date)); ?>
-                                            <p><span><?php echo($tdate);?></span></p>
+                                            <p><span style="color:green;"><?php echo($tdate);?></span></p>
                                         </div>
                                     </div>
                                 </div>
