@@ -58,7 +58,8 @@
                                             </div>
                                         </div>
                                         <div class="t-rate rate-inc">
-                                            <p><span><?php echo($latestsale->bill_date);?></span></p>
+                                            <?php $date = date("d-m-Y", strtotime($latestsale->bill_date)); ?>
+                                            <p><span><?php echo($date);?></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +79,8 @@
 
                                         </div>
                                         <div class="t-rate rate-dec">
-                                            <p><span><?php echo($latestpurchase->bill_date);?></span></p>
+                                        <?php $pdate = date("d-m-Y", strtotime($latestpurchase->bill_date)); ?>
+                                            <p><span><?php echo($pdate);?></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -92,13 +94,14 @@
                                                 </div>
                                             </div>
                                             <div class="t-name">
-                                                <h4>Transfer</h4>
+                                                <h4>Stock Transfer</h4>
                                                 
                                             </div>
 
                                         </div>
                                         <div class="t-rate rate-inc">
-                                            <p><span><?php echo($latesttransfer->bill_date);?></span></p>
+                                        <?php $tdate = date("d-m-Y", strtotime($latesttransfer->bill_date)); ?>
+                                            <p><span><?php echo($tdate);?></span></p>
                                         </div>
                                     </div>
                                 </div>
