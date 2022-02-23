@@ -115,7 +115,7 @@ c3 = $('#style-3').DataTable({
 
 @if(Session::has('error'))
 <script>
-	swal("oops..", "No PDF to merge!","error");
+	swal("oops..", "No Data Found","error");
 	//jQuery('#monthdata').html('No Data For This Month');
 	//$("#monthdata").fadeOut(10000);
 	</script>

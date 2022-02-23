@@ -590,6 +590,10 @@ class PDFController extends Controller
          $stock = json_decode(json_encode($stock_trf), true);
          $inm = $item;
          $res = array_merge($sales, $purchase, $stock);
+         if(empty($res)){
+            Session::flash('error', 'No data for this month');
+            return redirect()->back();
+           }else{
          $priorities = ["SalesCreditMemo", "Purchase Invoice", "TransferRcpt", "SalesInvoice", "TransferShpt", "PurchCreditMemo"];
          usort($res, function($a, $b) use ($priorities) {
              return [@$a['bill_date'], @$a['document_type']]
@@ -1067,6 +1071,7 @@ class PDFController extends Controller
           $pdf_name[] = 'item_'.$item.''.$flag.'.pdf';
              }
            }
+        }
           $pdfMerger = PDFMerger::init(); 
                        foreach($pdf_name as $pdf){
                        $pdfMerger->addPDF(public_path().'/pdf/'.$pdf);

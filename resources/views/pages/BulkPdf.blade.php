@@ -88,13 +88,13 @@
                                         <div class="form-row mb-4">
                                             <div class="form-group col-md-6">
                                                 <label for="inputEmail4">From</label>
-                                                <input type="date" class="form-control" id="fromDate" name="fromDate" placeholder="" autocomplete="off">
+                                                <input type="date" class="form-control" id="fromDate" name="fromDate" placeholder="" autocomplete="off" Required>
                                             </div>
 
                                             <div class="form-group col-md-6">
                                             
                                                 <label for="inputEmail4">To</label>
-                                                <input type="date" class="form-control" id="toDate" name="toDate" placeholder="" autocomplete="off">
+                                                <input type="date" class="form-control" id="toDate" name="toDate" placeholder="" autocomplete="off" Required>
                                             </div>       
                                         </div>
                                         
