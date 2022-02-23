@@ -23,9 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $latestsale =  DB::table('sale_data')->latest('bill_date')->first();
+        $latestsale =  DB::table('sale_data')->latest('bill_date')->where('client','Fmc')->first();
+        $latestpurchase =  DB::table('purchase_data')->latest('bill_date')->where('client','Fmc')->first();
 
-        return view('pages.dashboard',['latestsale' => $latestsale]);
+        return view('pages.dashboard',['latestsale' => $latestsale, 'latestpurchase' => $latestpurchase]);
     }
 
     public function maintenance()

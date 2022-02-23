@@ -26,20 +26,20 @@
 <div class="row layout-top-spacing">
 
     <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-        
+    <div class="card" style="padding: 20px;">
             <div class="widget-heading">
-                <h6 class="">Last Date Of Uploaded Data</h6>        
+                <h6 class="value">Last Date Of Uploaded Data</h6>        
             </div><br>
             <div class="w-chart">
                 <p>Sales</p><?php echo $latestsale->bill_date; ?>
-                <p>Purchase</p>
+                <p>Purchase</p><?php echo $latestpurchase->bill_date; ?>
                 <p>Transfer</p>
                 
             </div>
-        
+</div>
     </div>
 
-  <!--  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
         <div class="widget widget-card-four">
             <div class="widget-content">
                 <div class="w-header">
@@ -85,7 +85,7 @@
         </div>
     </div>
     
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+  <!--  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
         <div class="widget widget-account-invoice-two">
             <div class="widget-content">
                 <div class="account-box">
