@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        $latestsale =  DB::table('sale_data')->latest('bill_date')->first();
+
+        return view('pages.dashboard',['latestsale' => $latestsale]);
     }
 
     public function maintenance()
