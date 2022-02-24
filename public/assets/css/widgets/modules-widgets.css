@@ -2191,13 +2191,13 @@
       justify-content: space-between;
       margin-bottom: 1px; }
       .widget-four .widget-content .w-summary-info h6 {
-        font-size: 13px;
+        font-size: 17px;
         font-weight: 600;
         margin-bottom: 0;
         color: #888ea8; }
       .widget-four .widget-content .w-summary-info .summary-count {
         display: block;
-        font-size: 16px;
+        font-size: 12px;
         margin-top: 4px;
         font-weight: 600;
         color: #515365; }
