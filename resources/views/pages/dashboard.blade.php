@@ -1,6 +1,15 @@
 @extends('layouts.main')
 @section('title', 'Dashboard')
 @section('content')
+<style>
+.widget-four .widget-content .w-summary-info .summary-count {
+    display: block;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 600;
+    color: #515365;
+}
+    </style>
 <div class="layout-px-spacing">
 
 <div class="page-header">
