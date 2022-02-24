@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
+           <!--         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
                         <div class="widget widget-four" style="width: 152%;">
                             <div class="widget-heading">
                                 <h5 class="">Top Selling Products</h5>
@@ -209,9 +209,87 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div>  -->
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+
+<div class="widget widget-activity-four">
+
+<div class="widget-heading">
+<h5 class="">Recent Activities</h5>
+</div>
+
+<div class="widget-content">
+
+
+<div class="timeline-line">
+
+    <div class="item-timeline timeline-primary">
+        <div class="t-dot" data-original-title="" title="">
+        </div>
+        <div class="t-text">
+            <p><span>Uploaded</span> Sale Data</p>
+            <span class="badge">updated</span>
+            <p class="t-time">Just Now</p>
+        </div>
+    </div>
+
+    <div class="item-timeline timeline-success">
+        <div class="t-dot" data-original-title="" title="">
+        </div>
+        <div class="t-text">
+            <p>Uploaded Stock Transfer </p>
+            <span class="badge">Completed</span>
+            <p class="t-time">2 min ago</p>
+        </div>
+    </div>
+
+    <div class="item-timeline  timeline-danger">
+        <div class="t-dot" data-original-title="" title="">
+        </div>
+        <div class="t-text">
+            <p>Download PDF <span>CORAGEN 18.5%SC_10ML_IN</span></p>
+            <span class="badge">Completed</span>
+            <p class="t-time">14:00</p>
+        </div>
+    </div>
+
+    <div class="item-timeline  timeline-dark">
+        <div class="t-dot" data-original-title="" title="">
+        </div>
+        <div class="t-text">
+            <p>Download PDF MIRACLE_100ML</p>
+            <span class="badge">Completed</span>
+            <p class="t-time">16:00</p>
+        </div>
+    </div>
+
+    <div class="item-timeline  timeline-warning">
+        <div class="t-dot" data-original-title="" title="">
+        </div>
+        <div class="t-text">
+            <p>Upload Purchase Data</p>
+            <span class="badge">In progress</span>
+            <p class="t-time">17:00</p>
+        </div>
+    </div>
+
+    
+
+  
+</div>
+</div>
+
+<div class="tm-action-btn">
+<button class="btn"><span>View All</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+</div>  
+
+</div>
+</div>
+
+                                             </div>
+<div class="row">
                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                        <div class="widget widget-four" style="width: 151%; height: 83%;">
+                        <div class="widget widget-four" style="width: 151%;">
                             <div class="widget-heading">
                                 <h5 class="">Near Expiry Stocks With in 6 Months</h5>
 
@@ -304,89 +382,7 @@
                     </div>
 
 
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-
-<div class="widget widget-activity-four" style="margin-left: 211px; width: 100%; height: 83%;">
-
-    <div class="widget-heading">
-        <h5 class="">Recent Activities</h5>
-    </div>
-
-    <div class="widget-content">
-
-        <div class="mt-container mx-auto">
-            <div class="timeline-line">
-
-                <div class="item-timeline timeline-primary">
-                    <div class="t-dot" data-original-title="" title="">
-                    </div>
-                    <div class="t-text">
-                        <p><span>Uploaded</span> Sale Data</p>
-                        <span class="badge">updated</span>
-                        <p class="t-time">Just Now</p>
-                    </div>
-                </div>
-
-                <div class="item-timeline timeline-success">
-                    <div class="t-dot" data-original-title="" title="">
-                    </div>
-                    <div class="t-text">
-                        <p>Uploaded Stock Transfer </p>
-                        <span class="badge">Completed</span>
-                        <p class="t-time">2 min ago</p>
-                    </div>
-                </div>
-
-                <div class="item-timeline  timeline-danger">
-                    <div class="t-dot" data-original-title="" title="">
-                    </div>
-                    <div class="t-text">
-                        <p>Download PDF <span>CORAGEN 18.5%SC_10ML_IN</span></p>
-                        <span class="badge">Completed</span>
-                        <p class="t-time">14:00</p>
-                    </div>
-                </div>
-
-                <div class="item-timeline  timeline-dark">
-                    <div class="t-dot" data-original-title="" title="">
-                    </div>
-                    <div class="t-text">
-                        <p>Download PDF MIRACLE_100ML</p>
-                        <span class="badge">Completed</span>
-                        <p class="t-time">16:00</p>
-                    </div>
-                </div>
-
-                <div class="item-timeline  timeline-warning">
-                    <div class="t-dot" data-original-title="" title="">
-                    </div>
-                    <div class="t-text">
-                        <p>Upload Purchase Data</p>
-                        <span class="badge">In progress</span>
-                        <p class="t-time">17:00</p>
-                    </div>
-                </div>
-
-                <div class="item-timeline  timeline-secondary">
-                    <div class="t-dot" data-original-title="" title="">
-                    </div>
-                    <div class="t-text">
-                        <p>Uploaded Item Master</p>
-                        <span class="badge">Completed</span>
-                        <p class="t-time">17:00</p>
-                    </div>
-                </div>
-
-              
-            </div>
-        </div>
-
-    <!--    <div class="tm-action-btn">
-            <button class="btn"><span>View All</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-        </div>  -->
-    </div>
-</div>
-</div>
+         
 
  <!--   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
         <div class="widget widget-card-four">

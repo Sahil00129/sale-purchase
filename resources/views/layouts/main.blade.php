@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
    
-    <title>@yield('title','') | Eternity - Register</title>
+    <title>@yield('title','') | ESR </title>
 
     @include('include.head')
 
