@@ -22,95 +22,146 @@
 
 <div class="row layout-top-spacing">
 
-<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                        <div class="widget widget-table-one">
+
+                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                        <div class="widget widget-table-two">
+
                             <div class="widget-heading">
                                 <h5 class="">Last Date Of Uploaded Data</h5>
-                                <div class="task-action">
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" id="pendingTask" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="pendingTask" style="will-change: transform;">
-                                            <a class="dropdown-item" href="javascript:void(0);">View Report</a>
-                                            <a class="dropdown-item" href="javascript:void(0);">Edit Report</a>
-                                            <a class="dropdown-item" href="javascript:void(0);">Mark as Done</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="widget-content">
-
-                                <div class="transactions-list t-info">
-                                    <div class="t-item">
-                                        <div class="t-company-name">
-                                            <div class="t-icon">
-                                                <div class="avatar avatar-xl">
-                                                    <span class="avatar-title">S</span>
-                                                </div>
-                                            </div>
-                                            <div class="t-name">
-                                                <h4>Sales</h4>
-                                                  
-                                            
-                                            </div>
-                                        </div>
-                                        <div class="t-rate rate-inc">
-                                            <?php $date = date("d-m-Y", strtotime($latestsale->bill_date)); ?>
-                                            <p><span style="color:green;"><?php echo($date);?></span></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="transactions-list">
-                                    <div class="t-item">
-                                        <div class="t-company-name">
-                                            <div class="t-icon">
-                                            <div class="avatar avatar-xl">
-                                                    <span class="avatar-title">p</span>
-                                                </div>
-                                            </div>
-                                            <div class="t-name">
-                                                <h4>Purchase</h4>
-                                               
-                                            </div>
-
-                                        </div>
-                                        <div class="t-rate rate-dec">
-                                        <?php $pdate = date("d-m-Y", strtotime($latestpurchase->bill_date)); ?>
-                                            <p><span style="color:green;"><?php echo($pdate);?></span></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="transactions-list">
-                                    <div class="t-item">
-                                        <div class="t-company-name">
-                                            <div class="t-icon">
-                                            <div class="avatar avatar-xl">
-                                                    <span class="avatar-title">ST</span>
-                                                </div>
-                                            </div>
-                                            <div class="t-name">
-                                                <h4>Stock Transfer</h4>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead> 
+                                            <tr>
+                                                <th><div class="th-content">Transaction</div></th>
+                                                <th><div class="th-content">Fmc</div></th>
+                                                <th><div class="th-content">Corteva</div></th>  
                                                 
-                                            </div>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><div class="td-content customer-name"><span>Sales</span></div></td>
+                                                <!----Fmc sale date -->
+                                                <?php  if(!empty($latestsale->bill_date)){ ?>
+                                                    <?php $date = date('d-m-Y',strtotime($latestsale->bill_date)); ?>
+                                                <td><div class="td-content product-brand text-warning"><?php echo($date);?></div></td>
+                                                <?php } else{ ?>
+                                                    <td><div class="td-content product-brand text-primary"> - </div></td>
+                                                    <?php } ?>
+                                                    <!----end fmc sale date-->
+                                                    <!-----Corteva Sale date -->
+                                                    <?php  if(!empty($latestsalecorteva->bill_date)){ ?>
+                                                        <?php $cdate = date('d-m-Y',strtotime($latestsalecorteva->bill_date)); ?>
+                                                <td><div class="td-content product-invoice"><?php echo($cdate);?></div></td>
+                                                <?php } else{ ?>
+                                                    <td><div class="td-content product-invoice"> - </div></td>
+                                                    <?php } ?>
+                                                    <!----end corteva sale date -->
+                                               
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td><div class="td-content customer-name"><span>Purchase</span></div></td>
+                                                <!---fmc purchase date-->
+                                                <?php  if(!empty($latestpurchase->bill_date)){ ?>
+                                                    <?php $pdate = date('d-m-Y',strtotime($latestsale->bill_date)); ?>
+                                                <td><div class="td-content product-brand text-warning"><?php echo($pdate);?></div></td>
+                                                <?php } else{ ?>
+                                                    <td><div class="td-content product-brand text-warning"> - </div></td>
+                                                    <?php } ?>
+                                                    <!---end fmc purchase date-->
+                                                    <!-- Corteva purchase date -->
+                                                    <?php  if(!empty($latestpurchasecorteva->bill_date)){ ?>
+                                                    <?php $cpdate = date('d-m-Y',strtotime($latestpurchasecorteva->bill_date)); ?>
+                                                <td><div class="td-content product-invoice"><?php echo($cpdate);?></div></td>
+                                                <?php } else{ ?>
+                                                    <td><div class="td-content product-invoice"> - </div></td>
+                                                    <?php } ?>
+                                                    <!-- end Corteva purchase date -->
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td><div class="td-content customer-name"><span>Stock Transfer</span></div></td>
+                                                <!--- fmc stock transfer -->
+                                                <?php  if(!empty($latesttransfer->bill_date)){ ?>
+                                                    <?php $stdate = date('d-m-Y',strtotime($latesttransfer->bill_date)); ?>
+                                                <td><div class="td-content product-brand text-warning"><?php echo($stdate);?></div></td>
+                                                <?php } else{ ?>
+                                                    <td><div class="td-content product-brand text-warning"> - </div></td>
+                                                    <?php } ?>
+                                         <!-------endn fmc  stock transfer --->
+                                         <!--------corteva stock transfer  --->
+                                         <?php  if(!empty($latesttransfercorteva->bill_date)){ ?>
+                                                    <?php $stcdate = date('d-m-Y',strtotime($latesttransfercorteva->bill_date)); ?>
 
-                                        </div>
-                                        <div class="t-rate rate-inc">
-                                        <?php $tdate = date("d-m-Y", strtotime($latesttransfer->bill_date)); ?>
-                                            <p><span style="color:green;"><?php echo($tdate);?></span></p>
-                                        </div>
-                                    </div>
+                                             <td><div class="td-content product-invoice"><?php echo($stcdate);?></div></td>
+                                             <?php } else{ ?>
+                                                <td><div class="td-content product-invoice"> - </div></td>
+                                                <?php } ?>
+                                        <!----------end corteva stock transfer --->
+                                            </tr>                                            
+                                           
+                                        </tbody>
+                                    </table>
                                 </div>
-
-                               
-                                
                             </div>
                         </div>
                     </div>
+                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                        <div class="widget widget-table-three">
+
+                            <div class="widget-heading">
+                                <h5 class="">Top Selling Product</h5>
+                            </div>
+
+                            <div class="widget-content">
+                                <div class="table-responsive">
+                                    <table class="table table-scroll">
+                                        <thead>
+                                            <tr>
+                                                <th><div class="th-content">Product</div></th>
+                                                <th><div class="th-content th-heading">Price</div></th>
+                                                <th><div class="th-content th-heading">Discount</div></th>
+                                                <th><div class="th-content">Sold</div></th>
+                                                <th><div class="th-content">Source</div></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><div class="td-content product-name"><img src="assets/img/90x90.jpg" alt="product"><div class="align-self-center"><p class="prd-name">Headphone</p><p class="prd-category text-primary">Digital</p></div></div></td>
+                                                <td><div class="td-content"><span class="pricing">$168.09</span></div></td>
+                                                <td><div class="td-content"><span class="discount-pricing">$60.09</span></div></td>
+                                                <td><div class="td-content">170</div></td>
+                                                <td><div class="td-content"><a href="javascript:void(0);" class="text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-right"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg> Direct</a></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div class="td-content product-name"><img src="assets/img/90x90.jpg" alt="product"><div class="align-self-center"><p class="prd-name">Shoes</p><p class="prd-category text-warning">Faishon</p></div></div></td>
+                                                <td><div class="td-content"><span class="pricing">$108.09</span></div></td>
+                                                <td><div class="td-content"><span class="discount-pricing">$47.09</span></div></td>
+                                                <td><div class="td-content">130</div></td>
+                                                <td><div class="td-content"><a href="javascript:void(0);" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-right"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg> Google</a></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div class="td-content product-name"><img src="assets/img/90x90.jpg" alt="product"><div class="align-self-center"><p class="prd-name">Watch</p><p class="prd-category text-danger">Accessories</p></div></div></td>
+                                                <td><div class="td-content"><span class="pricing">$88.00</span></div></td>
+                                                <td><div class="td-content"><span class="discount-pricing">$20.00</span></div></td>
+                                                <td><div class="td-content">66</div></td>
+                                                <td><div class="td-content"><a href="javascript:void(0);" class="text-warning"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-right"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg> Ads</a></div></td>
+                                            </tr>
+                                           
+                                          
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
  <!--   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
         <div class="widget widget-card-four">

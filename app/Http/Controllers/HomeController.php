@@ -23,10 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+     
+       
         $latestsale =  DB::table('sale_data')->latest('bill_date')->where('client','Fmc')->first();
         $latestpurchase =  DB::table('purchase_data')->latest('bill_date')->where('client','Fmc')->first();
         $latesttransfer =  DB::table('stock_transfer')->latest('bill_date')->where('client','Fmc')->first();
-        return view('pages.dashboard',['latestsale' => $latestsale, 'latestpurchase' => $latestpurchase, 'latesttransfer' => $latesttransfer]);
+        
+        $latestsalecorteva =  DB::table('sale_data')->latest('bill_date')->where('client','Corteva')->first();
+        $latestpurchasecorteva =  DB::table('purchase_data')->latest('bill_date')->where('client','Corteva')->first();
+        $latesttransfercorteva =  DB::table('stock_transfer')->latest('bill_date')->where('client','Corteva')->first();
+       
+        return view('pages.dashboard',['latestsale' => $latestsale, 'latestpurchase' => $latestpurchase, 'latesttransfer' => $latesttransfer, 'latestsalecorteva' => $latestsalecorteva, 'latestpurchasecorteva' => $latestpurchasecorteva, 'latesttransfercorteva' => $latesttransfercorteva]);
     }
 
     public function maintenance()
