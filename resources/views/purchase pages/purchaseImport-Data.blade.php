@@ -57,12 +57,15 @@
                                                     <div class="form-row mb-4">
                                                 
                                                         <label for="inputState">Import Type</label>
-                                                        <select id="p_type" class="form-control" name="p_type">
+                                                        <select id="p_type" class="form-control" name="p_type" onchange="receveCheck(this);">
                                                             <option selected disabled>Choose...</option>
                                                             <option value="1">Monthly/fortnightly Import (DF/ADF)</option>
                                                             <option value="2">Daily Import</option>
                                                         </select>  
-                                                   </div>
+                                                   </div>  <!--courier other field -->
+                                     <div id="ifYes_receiving" style="display: none;">
+                                         <input type="month" class="form-control" id="" name="month_year"  placeholder="Other Receiving Company" autocomplete="off">
+                                          </div>
                                                    <div class="form-row mb-4">
                                                 
                                                 <label for="inputState">Identity</label>
@@ -104,16 +107,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    
-
-                  
-                  
+                    </div>  
                 </div>
 
                 </div>
-
-
+               
+     
 
 @endsection

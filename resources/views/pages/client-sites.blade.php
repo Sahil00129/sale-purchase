@@ -51,9 +51,9 @@
                                     </div>
                                         </section>
                                         <h3>Client</h3>
-                                        <section>
-                                        <div class="form-row mb-4">
-                                          <div class="form-group col-md-10">
+                                   <section>
+                                            <div class="form-row mb-4">
+                                            <div class="form-group col-md-10">
                                             <label for="inputEmail4">Client</label>
                                              <input type="text" class="form-control" id="client" placeholder="" name="client" autocomplete="off">
                                       </div>
@@ -61,18 +61,16 @@
                                         </section>
                                         <h3>Sites</h3>
                                         <section>
-                                        <label>Upload (Single File) <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
-                                       <label class="custom-file-container__custom-file" >
-                                        <input type="file"       class="custom-file-container__custom-file__custom-file-input" id="sites" name="file" accept = '.csv'>
+                                             <label>Upload (Single File) <a href="javascript:void(0)"    class="custom-file-container__image-clear" title="Clear Image">x</a></label>
+                                             <label class="custom-file-container__custom-file" >
+                                             <input type="file"       class="custom-file-container__custom-file__custom-file-input" id="sites" name="file" accept = '.csv'>
          
                                         <span class="custom-file-container__custom-file__custom-file-control"></span>
                                         </label>
                                         <button type="submit" class="btn btn-primary">Save</button> 
-                                        </section>
+                                   </section>
                                         
-                                    </div>
-
-                                   
+                                    </div>           
                                     </form>
                                 </div>
                             </div>

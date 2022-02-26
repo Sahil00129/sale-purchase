@@ -98,3 +98,6 @@ Route::get('monthlyPurchase-Table', [AjaxController::class,'monthlyPurchaseServe
 
 Route::get('monthlyPurchase-data-request', [AjaxController::class,'monthlyPurchaseServer']);
 Route::get('dailyPurchase-data-request', [AjaxController::class,'dailyPurchaseServer']);
+
+
+Route::get('finalView-table', [PurchaseImportController::class,'finalTableView']);

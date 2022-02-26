@@ -28,6 +28,7 @@ class PurchaseImport implements ToModel,WithHeadingRow
                 'sites'  => $row['sites'],
                 'identity' => $_POST['identity'],
                 'client' => $_POST['client'],
+                'month_year' => $_POST['month_year'],
             ]);
     
             }

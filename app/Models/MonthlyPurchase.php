@@ -17,6 +17,7 @@ class MonthlyPurchase extends Model
         'sites',
         'identity',
         'client',
+        'month_year',
   
     ];
 }

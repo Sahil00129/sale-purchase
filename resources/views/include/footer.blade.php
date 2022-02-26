@@ -101,16 +101,26 @@ c3 = $('#style-3').DataTable({
         multiCheck(c3);
     </script>
     @if(Session::has('deleted'))
-  <script>
+   <script>
 	 swal("Deleted", "Data has been Deleted","success");
-  </script>
-	 @endif
+   </script>
+ 	 @endif
     
-    <!-- END PAGE LEVEL CUSTOM SCRIPTS -->
-    <script>
-    $(".tagging").select2({
-    tags: true
-});
+     <!-- END PAGE LEVEL CUSTOM SCRIPTS -->
+     <script>
+      $(".tagging").select2({
+      tags: true
+   });
+</script>
+<script>
+        
+function receveCheck(that) {
+if (that.value == "1") {
+   document.getElementById("ifYes_receiving").style.display = "block";
+} else {
+   document.getElementById("ifYes_receiving").style.display = "none";
+}
+}
 </script>
 
 @if(Session::has('error'))

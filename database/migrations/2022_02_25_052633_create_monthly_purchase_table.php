@@ -22,6 +22,7 @@ class CreateMonthlyPurchaseTable extends Migration
             $table->string('sites');
             $table->string('identity');
             $table->string('client');
+            $table->string('month_year');
             $table->timestamps();
         });
     }
