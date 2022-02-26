@@ -106,7 +106,7 @@
                                             </div>       
                                         </div>
                                         <div class="form-row mb-4">
-                              
+                               
                                       <div class="form-group col-md-6">
                                           <label for="inputState">Group</label>
                                           <select id="igroup" name="group" class="form-control">

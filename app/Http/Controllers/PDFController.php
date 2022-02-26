@@ -21,6 +21,7 @@ class PDFController extends Controller
         $client = $_POST['client'];
         $fromDate = $_POST['fromDate'];
         $list =  DB::table('item_master')->where('pack', $_POST['packing'])->where('group', $_POST['group'])->get();
+        
         //echo "<pre>"; print_r($list);die;
         $rs = $list->toArray();
         $items = array();

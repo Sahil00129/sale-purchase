@@ -53,7 +53,7 @@ class ImportDataController extends Controller
           //$site_id = Auth::user()->id;  
           //$role = Auth::user()->role;
           //$role_name = $role->name;
-         // echo'<pre>';print_r($site_id->role);die;
+          //echo'<pre>';print_r($site_id->role);die;
           $site_id = Auth::User();
           if($site_id->role == 'super admin'){
           $sites = DB::table('identity_client_sites')->select('sites')->distinct()->get();

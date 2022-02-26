@@ -12,6 +12,7 @@ use App\Http\Controllers\TableController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\CompanySetupController;
+use App\Http\Controllers\PurchaseImportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -83,3 +84,17 @@ Route::get('/comapny-group', [CompanySetupController::class,'companygroupTable']
 Route::get('/identity-client-site', [CompanySetupController::class,'identityClientSites']);
 Route::any('/add-identity-sites', [CompanySetupController::class,'addIdentitySites']);
 Route::any('/delete-identity/{id}', [CompanySetupController::class, 'destroyIdentity']);
+
+
+
+
+
+/**********************************************  Purchase **********************************************/
+
+Route::get('purchase-Import', [PurchaseImportController::class,'purchaseImportView']);
+Route::post('/purchase-import', [PurchaseImportController::class,'purchaseImportData']);
+
+Route::get('monthlyPurchase-Table', [AjaxController::class,'monthlyPurchaseServer']);
+
+Route::get('monthlyPurchase-data-request', [AjaxController::class,'monthlyPurchaseServer']);
+Route::get('dailyPurchase-data-request', [AjaxController::class,'dailyPurchaseServer']);

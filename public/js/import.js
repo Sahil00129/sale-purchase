@@ -145,7 +145,7 @@ $(document).ready(function (e) {
   ////////////////Add Identity//////////////
   $('#add-identity').submit(function(e) {
     e.preventDefault();
-  //alert (this); die;
+    //alert (this); die;
     $.ajax({
         url: "/add-identity", 
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -279,6 +279,67 @@ $(document).ready(function (e) {
                      }       
      }); 
    });  
+
+///////////////////////////////purchase Daily import///////////////////////
+$('#purchase_import').submit(function(e) {
+  //alert('hii');return false;
+ e.preventDefault();
+ var formData = new FormData(this);
+ var itype = jQuery('#p_type').val();
+ var identity = jQuery('#p_identity').val();
+ var client = jQuery('#p_client').val();
+ var myfile = jQuery('#myCsv').val();
+if (!itype) {
+ swal("Error!", "Please select import type", "error");
+ return false;
+}
+if (!identity) {
+swal("Error!", "please select identity", "error");
+return false;
+}
+if (!client) {
+swal("Error!", "please select client", "error");
+return false;
+}
+if (!myfile) {
+swal("Error!", "please upload an import file", "error");
+return false;
+}
+        //alert (this);
+        $.ajax({
+              url: "/purchase-import", 
+              headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+              type: 'POST',  
+              data:new FormData(this),
+              processData: false,
+              contentType: false,
+              beforeSend: function(){
+                   $(".indicator-progress").show(); 
+                   $(".indicator-label").hide();
+                
+                 },
+                success: (data) => {
+                    $(".indicator-progress").hide();
+                    $(".indicator-label").show();   
+                    $('#purchase_import').trigger('reset');
+                  //this.reset();
+                  //console.log(data.ignoredItems);
+                  //console.log(data.ignoredcount);
+                  if(data.success === true) { 
+                  
+                    swal("Success!", "File has been imported successfully", "success");
+                  } else if (data.success === false) {
+                    swal("Success!", "not", "success");
+                  
+                   }else{
+
+                    swal("Error", data.messages, "error");
+                }
+                
+                }
+        });
+    });
+
 });
 
 

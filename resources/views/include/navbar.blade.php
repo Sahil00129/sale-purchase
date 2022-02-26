@@ -44,12 +44,23 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </a>
                     <ul class="collapse submenu list-unstyled animated fadeInUp" id="app" data-parent="#topAccordion">
-                    <li>
+                         <li>
                             <a href="{{url('import-data')}}">Sales Import</a>
                         </li>  
-                    <li>
-                            <a href="{{url('maintenance')}}"> Purchase Import </a>
+                        <li>
+                            <a href="{{url('purchase-Import')}}">Purchase Import</a>
                         </li>
+                        <!--      <li class="sub-sub-submenu-list">
+                                        <a href="#appInvoice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Purchase Import <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
+                                        <ul class="collapse list-unstyled sub-submenu animated fadeInUp" id="appInvoice" data-parent="#appInvoice">
+                                            <li>
+                                                <a href="{{url('purchase-Import')}}"> One Time Import </a>
+                                            </li>
+                                            <li>
+                                                <a href="apps_invoice-preview.html"> Monthly/Daily Import</a>
+                                            </li>     
+                                        </ul>
+                                    </li>   -->
                     </ul>
                 </li>
                 
@@ -81,6 +92,11 @@
                                             <li>
                                                 <a href="{{url('itemMaster-table')}}"> Item Master </a>
                                             </li>
+                                            
+                                            <li>
+                                            <li class="sub-sub-submenu-list">
+                                        <a href="#uiKit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Sales Table <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
+                                        <ul class="collapse list-unstyled sub-submenu animated fadeInUp" id="uiKit" data-parent="#components">
                                             <li>
                                                 <a href="{{url('openingData-table')}}"> Opening Data </a>
                                             </li>
@@ -94,13 +110,26 @@
                                                 <a href="{{url('stockTransfer-table')}}"> Stock Transfer </a>
                                             </li>
                                         </ul>
+                                      </li>  
+                                            </li>
+                                            <li>
+                                     <li class="sub-sub-submenu-list">
+                                        <a href="#uiKit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Purchase Tables <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
+                                        <ul class="collapse list-unstyled sub-submenu animated fadeInUp" id="uiKit" data-parent="#components">
+                                            <li>
+                                                <a href="#">Monthly Purchase </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Daily Bases </a>
+                                            </li>
+                                        </ul>
+                                      </li>  
+                                            </li>
+                                        </ul>
                                     </li>  
-                                </ul>
-                               
-                                
+                                </ul>   
                             </li>
 
-               
 
                 <?php 
                 $role = Auth::user()->role; 
@@ -121,12 +150,10 @@
                         </li>
                         <li>
                             <a href="{{url('comapny-group')}}">Group Table</a>
-                        </li>
-                        
+                        </li>  
                     </ul>
                     </li>
                          <?php }else{ ?>
-                 
                         <?php } ?>
               @can('user-list')
                 <li class="menu single-menu menu-extras">
@@ -135,19 +162,16 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </a>
-                    <ul class="collapse submenu list-unstyled animated fadeInUp" id="more"  data-parent="#topAccordion">
-                        
+                     </a>
+                       <ul class="collapse submenu list-unstyled animated fadeInUp" id="more"  data-parent="#topAccordion">         
                         <li>
                             <a href="{{url('users')}}">Users List</a>
-                        </li>
-                      
+                        </li>                  
                         @can('role-list')
                         <li>
                             <a href="{{url('roles')}}"> Roles</a>
                         </li>
                         @endcan
-              
                     </ul>
                 </li>
                 @endcan
