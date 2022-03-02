@@ -13,7 +13,7 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\CompanySetupController;
 use App\Http\Controllers\PurchaseImportController;
-use App\Http\Controllers\SampleDowbloadController;
+use App\Http\Controllers\SampleDownloadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,6 +88,11 @@ Route::any('/delete-identity/{id}', [CompanySetupController::class, 'destroyIden
 
 Route::get('/company-organisation', [CompanySetupController::class,'companyOrganisation']);
 
+Route::get('/sample-itemMaster',[SampleDownloadController::class, 'itemMasterSample']);
+Route::get('/sample-purchase',[SampledownloadController::class, 'purchaseSample']);
+Route::get('/sample-sale',[SampleDownloadController::class, 'saleSample']);
+Route::get('/sample-stockTransfer',[SampledownloadController::class, 'stockTransferSample']);
+Route::get('/sample-stockOpening',[SampleDownloadController::class, 'stockOpeningSample']);
 
 
 /**********************************************  Purchase **********************************************/
@@ -103,5 +108,3 @@ Route::get('/company-organisation', [CompanySetupController::class,'companyOrgan
 //Route::get('finalView-table', [PurchaseImportController::class,'finalTableView']);
 //Route::any('get-final-data', [PurchaseImportController::class,'finalTableCalculation']);
 
-//Route::get('/sample-itemMaster',[SampleDownloadController::class, 'itemMasterSample']);
-//Route::get('/sample-purchase',[SampledownloadController::class, 'purchaseSample']);

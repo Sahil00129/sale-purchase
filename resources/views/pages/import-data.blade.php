@@ -25,11 +25,8 @@ div#ignoredItems {
                                 <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0);">Sales Import</a></li>
                              </ol>
                              
-                        </nav>
-                        
-                    </div>
-                    
-                
+                        </nav>     
+                    </div>         
                     <div class="row layout-top-spacing">
                         <div id="modalVerticallyCentered" class="col-lg-12 layout-spacing">
                             <div class="statbox widget box box-shadow">
