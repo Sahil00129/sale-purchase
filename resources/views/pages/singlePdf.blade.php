@@ -112,7 +112,6 @@
                                           <select id="igroup" name="group" class="form-control">
                                               <option selected>Select...</option>
                                               @foreach($list as $l)
-
                                               <option value="{{$l->group}}">{{$l->group}}</option>
                                               @endforeach
                                              

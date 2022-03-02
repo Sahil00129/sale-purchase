@@ -47,9 +47,9 @@
                          <li>
                             <a href="{{url('import-data')}}">Sales Import</a>
                         </li>  
-                        <li>
+                     <!--   <li>
                             <a href="{{url('purchase-Import')}}">Purchase Import</a>
-                        </li>
+                        </li> -->
                         <!--      <li class="sub-sub-submenu-list">
                                         <a href="#appInvoice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Purchase Import <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
                                         <ul class="collapse list-unstyled sub-submenu animated fadeInUp" id="appInvoice" data-parent="#appInvoice">
@@ -113,7 +113,7 @@
                                       </li>  
                                             </li>
                                             <li>
-                                     <li class="sub-sub-submenu-list">
+                              <!--       <li class="sub-sub-submenu-list">
                                         <a href="#uiKit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Purchase Tables <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
                                         <ul class="collapse list-unstyled sub-submenu animated fadeInUp" id="uiKit" data-parent="#components">
                                             <li>
@@ -123,7 +123,7 @@
                                                 <a href="{{url('dailyPurchase-data-request')}}">Daily Bases </a>
                                             </li>
                                         </ul>
-                                      </li>  
+                                      </li>   -->
                                             </li>
                                         </ul>
                                     </li>  
@@ -161,7 +161,7 @@
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                      </a>
-                       <ul class="collapse submenu list-unstyled animated fadeInUp" id="more"  data-parent="#topAccordion">         
+                     <ul class="collapse submenu list-unstyled animated fadeInUp" id="more"  data-parent="#topAccordion">         
                         <li>
                             <a href="{{url('users')}}">Users List</a>
                         </li>                  
@@ -183,14 +183,11 @@
 <ul class="navbar-item flex-row ml-auto">
     
 </ul>
-
 <ul class="navbar-item flex-row nav-dropdowns">
-   
-
     <li class="nav-item dropdown user-profile-dropdown order-lg-0 order-1">
-        <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="user-profile-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="user-profile-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media">
-                <img src="{{asset('assets/img/90x90.jpg')}}" class="img-fluid" alt="admin-profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> 
             </div>
         </a>
         <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">

@@ -25,7 +25,7 @@ class CompanySetupController extends Controller
 
    public function addGroup(Request $request) 
     {
-   //echo"<pre>"; print_r($_POST); die;
+        //echo"<pre>"; print_r($_POST); die;
         $group = new Group;
         $group->group = $request->group; 
 
@@ -166,8 +166,6 @@ class CompanySetupController extends Controller
        $clientSites->identity = $request->identity;
        $clientSites->client = $request->client;
        $clientSites->sites = $request->sites;
-   
-        
        //echo"<pre>"; print_r($S); die;
      
        $clientSites->save();
@@ -188,6 +186,11 @@ class CompanySetupController extends Controller
        Session::flash('deleted', 'Data has been deleted');
        return redirect()->back();
     
+   }
+
+   public function companyOrganisation()
+   {
+       return view ('pages.company-organisation');
    }
 
 }

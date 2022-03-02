@@ -13,6 +13,7 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\CompanySetupController;
 use App\Http\Controllers\PurchaseImportController;
+use App\Http\Controllers\SampleDowbloadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,7 +70,7 @@ Route::any('/generate-allinone-pdf', [PDFController::class, 'allinone']);
 
 Route::any('delete-courierCompany/{id}', [TableController::class, 'destroyItems']);
 
-//////////////////Company setup////////////////
+/////////////////////////////Company setup////////////////////////
 
 Route::get('/group/identity', [CompanySetupController::class,'groupIdentity']);
 Route::get('/group/identity/client', [CompanySetupController::class,'clientIdentity']);
@@ -85,19 +86,22 @@ Route::get('/identity-client-site', [CompanySetupController::class,'identityClie
 Route::any('/add-identity-sites', [CompanySetupController::class,'addIdentitySites']);
 Route::any('/delete-identity/{id}', [CompanySetupController::class, 'destroyIdentity']);
 
-
+Route::get('/company-organisation', [CompanySetupController::class,'companyOrganisation']);
 
 
 
 /**********************************************  Purchase **********************************************/
 
-Route::get('purchase-Import', [PurchaseImportController::class,'purchaseImportView']);
-Route::post('/purchase-import', [PurchaseImportController::class,'purchaseImportData']);
+//Route::get('purchase-Import', [PurchaseImportController::class,'purchaseImportView']);
+//Route::post('/purchase-import', [PurchaseImportController::class,'purchaseImportData']);
 
-Route::get('monthlyPurchase-Table', [AjaxController::class,'monthlyPurchaseServer']);
+//Route::get('monthlyPurchase-Table', [AjaxController::class,'monthlyPurchaseServer']);
 
-Route::get('monthlyPurchase-data-request', [AjaxController::class,'monthlyPurchaseServer']);
-Route::get('dailyPurchase-data-request', [AjaxController::class,'dailyPurchaseServer']);
+//Route::get('monthlyPurchase-data-request', [AjaxController::class,'monthlyPurchaseServer']);
+//Route::get('dailyPurchase-data-request', [AjaxController::class,'dailyPurchaseServer']);
 
+//Route::get('finalView-table', [PurchaseImportController::class,'finalTableView']);
+//Route::any('get-final-data', [PurchaseImportController::class,'finalTableCalculation']);
 
-Route::get('finalView-table', [PurchaseImportController::class,'finalTableView']);
+//Route::get('/sample-itemMaster',[SampleDownloadController::class, 'itemMasterSample']);
+//Route::get('/sample-purchase',[SampledownloadController::class, 'purchaseSample']);

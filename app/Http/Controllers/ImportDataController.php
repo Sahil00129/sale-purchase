@@ -23,26 +23,43 @@ class ImportDataController extends Controller
     }
   public function importData()
   {       
-        try
-        {     
-          $type = $_POST['import_type'];
-          //echo'<pre>'; print_r($type); die;     
-           //echo'<pre>'; print_r($_FILES); die;  
-           $identity = $_POST['identity'];
-           $client = $_POST['client'];
-           $data = Excel::import(new BulkImport, request()->file('file'));
-            
-            $response['import_type'] = $type;
-            $response['success'] = true;
-            $response['messages'] = 'Succesfully imported';
-            return Response::json($response);
-        
-        }catch (\Exception $e) {
-          $response['success'] = false;
-          $response['messages'] = 'something wrong';
-         // echo'<pre>'; print_r($e); die;
-          return Response::json($e);
+    try
+    {   
+        $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+        $csvFile = fopen($_FILES['file']['tmp_name'], 'r');
+        fgetcsv($csvFile);
+        $ignored = array(); 
+        while(($csvData = fgetcsv($csvFile)) !== FALSE){
+        $csvData = array_map("utf8_encode", $csvData);
+        //echo "<pre>"; print_r($csvData[3]);die;
+        if($_POST['import_type'] != 1){
+        $exists = itemMaster::where('item_name', '=', $csvData[3])->exists();
+        //echo "<pre>"; print_r($exists);die;
+        if(!$exists){
+            $ignored[] = $csvData[3];
         }
+        }
+        else{
+            $ignored[] = '';
+        }
+        }     
+        $countIgnored = count($ignored);
+        //echo "<pre>"; print_r($countIgnored);die;
+        $data = Excel::import(new BulkImport,request()->file('file'));
+        $response['success'] = true;
+        $response['ignoredItems'] = $ignored;
+        $response['ignoredcount'] = $countIgnored;
+        $response['messages'] = 'Succesfully imported';
+        return Response::json($response);
+
+    }catch (\Exception $e) {
+        $bug = $e->getMessage();
+        $response['success'] = false;
+        $response['messages'] = $bug;
+        return Response::json($response);
+    }
+       
+    //return back();
     }
 
     public function getsinglepdf()
@@ -78,7 +95,7 @@ class ImportDataController extends Controller
     public function getItemsofgroup()
     {
        //echo "<pre>";print_r($_POST);die;
-        $packing = DB::table('item_master')->select('pack')->where('group',$_POST['group'])->distinct()->get();
+       $packing = DB::table('item_master')->select('common_name')->where('group',$_POST['group'])->distinct()->get();
         $response['success'] = true;
         $response['messages'] = $packing;
         return Response::json($response);

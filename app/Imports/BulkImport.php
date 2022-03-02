@@ -16,7 +16,7 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 class BulkImport implements ToModel,WithHeadingRow
 {
     /**
-    * @param Collection $collection
+    * @param Collection $collection 
     */
     public function model(array $row)
     {
@@ -25,13 +25,10 @@ class BulkImport implements ToModel,WithHeadingRow
 
         if($_POST['import_type'] == 1){
             //echo "<pre>"; print_r($row);die;
-            $sender = DB::table('item_master')
-            ->where('item_name', '=', $row['item_name'])
-            ->where('item_number', '=', $row['item_number'])
-            ->first();
-            if(is_null($sender)) {
+            $commoName = $row['item_group'].' '.$row['pack'];
             return new itemMaster([
             'item_name'  => $row['item_name'],
+            'common_name'  => $commoName,
             'item_number'    => $row['item_number'],
             'pack' => $row['pack'],
             'group'   => $row['item_group'],
@@ -42,17 +39,21 @@ class BulkImport implements ToModel,WithHeadingRow
             
            
         ]);
-       }
+       
     }
 
        if($_POST['import_type'] == 2){
        //echo "<pre>"; print_r($_POST);die;
         set_time_limit(2333);
         if (itemMaster::where('item_name', '=', $row['item_name'])->exists()) {
+            $cname = DB::table('item_master')->select('common_name')->where('item_name', $row['item_name'])->first();
+            $cname = $cname->common_name;
+           // echo "<pre>"; print_r($cname);die;
             $string = $row['bill_date'];
             $trydate = date("Y-m-d", strtotime(substr($string, -4) . "-" . substr($string, 3, 2) . "-" . substr($string, 0, 2)));
             return new saleData([
                 'item_name'  => $row['item_name'],
+                'common_name'  => $cname,
                 'bill_no'    => $row['bill_no'],
                 'bill_date' => $trydate,
                 'sales_to_customer_name'   => $row['bill_to_customer_name'],
@@ -70,14 +71,18 @@ class BulkImport implements ToModel,WithHeadingRow
        }
 
        if($_POST['import_type'] == 3){
-        //echo "<pre>"; print_r($row);die;  
+       //echo "<pre>"; print_r($row);die;  
+        set_time_limit(2333);
         if (itemMaster::where('item_name', '=', $row['item_name'])->exists()) {
         $string = $row['bill_date']; 
+        $cname = DB::table('item_master')->select('common_name')->where('item_name', $row['item_name'])->first();
+        $cname = $cname->common_name;
         $billDate = date("Y-m-d", strtotime(substr($string, -4) . "-" . substr($string, 3, 2) . "-" . substr($string, 0, 2))); 
         $vendorIn = $row['vendor_invoice_date'];
         $vendorIn_newDate = date("Y-m-d", strtotime(substr($vendorIn, -4) . "-" . substr($vendorIn, 3, 2) . "-" . substr($vendorIn, 0, 2))); 
         return new purchaseData([
             'item_name'  => $row['item_name'],
+            'common_name'  => $cname,
             'bill_date'    => $billDate,
             'vendor_name' => $row['vendor_name'],
             'batch_number' => $row['batch_number'],
@@ -97,10 +102,13 @@ class BulkImport implements ToModel,WithHeadingRow
        if($_POST['import_type'] == 4){
         //echo "<pre>"; print_r($row);die;  
         if (itemMaster::where('item_name', '=', $row['item_name'])->exists()) {
+            $cname = DB::table('item_master')->select('common_name')->where('item_name', $row['item_name'])->first();
+        $cname = $cname->common_name;  
         $string = $row['date']; 
         $billDate = date("Y-m-d", strtotime(substr($string, -4) . "-" . substr($string, 3, 2) . "-" . substr($string, 0, 2))); 
         return new StockTransfer([
             'item_name'  => $row['item_name'],
+            'common_name'  => $cname,
             'bill_date'    => $billDate,
             'bill_no' => $row['document'],
             'quantity_in_kgltr' => $row['quantity_in_kgltr'],
@@ -120,6 +128,8 @@ class BulkImport implements ToModel,WithHeadingRow
        if($_POST['import_type'] == 5){
         //echo "<pre>"; print_r($row);die;  
         if (itemMaster::where('item_name', '=', $row['item_name'])->exists()) {
+            $cname = DB::table('item_master')->select('common_name')->where('item_name', $row['item_name'])->first();
+            $cname = $cname->common_name;     
         $pst = date('m'); 
         if($pst<4) {
             $y=date('Y');
@@ -135,6 +145,7 @@ class BulkImport implements ToModel,WithHeadingRow
             }
         return new StockBalance([
             'item_name'  => $row['item_name'], 
+            'common_name'  => $cname,
             'fy'    => $ptt,
             'site_id' => $row['site_id'],
             'opening_balance' => $row['opening_balance'],
@@ -147,8 +158,7 @@ class BulkImport implements ToModel,WithHeadingRow
         //echo "<pre>"; print_r($row);die;
         return new Sites([
         'site_id'  => $row['site_id'],
-        'site_name'  => $row['site_name'],
-        
+        'site_name'  => $row['site_name'],     
     ]);
    }
        

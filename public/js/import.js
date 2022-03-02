@@ -44,30 +44,19 @@ $(document).ready(function (e) {
                         //this.reset();
                         //console.log(data.ignoredItems);
                         //console.log(data.ignoredcount);
-                        if(data.import_type == 1) { 
-                        
-                          swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "itemMaster-table";
-                        }else if(data.import_type == 2) {
-                         
-                          swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "saleData-table";
-                        }else if(data.import_type == 3) {
-                         
-                          swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "purchaseData-table";
-                        }else if(data.import_type == 4) {
-                         
-                          swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "import-data";
-                        }else if(data.import_type == 5) {
-                         
-                          swal("Success!", "File has been imported successfully", "success");
-                          window.location.href = "import-data";
-                         }else{
-
-                          swal("Error", data.messages, "error");
-                      }
+                        if(data.success === true) { 
+                          if(data.ignoredcount > 0) { 
+                           $(".ignored").show();
+                           document.getElementById("ignoredItems").innerHTML = data.ignoredItems.join();
+                           swal("success!", data.ignoredcount + " ignored, Rest Items has been imported successfully", "success");
+                          } 
+                          else{
+                           swal("success!", "File has been imported successfully", "success");
+                         }
+                       }
+                       else{
+                       swal("error!", data.messages, "error");
+                       }
                       
                       }
               });
@@ -98,8 +87,8 @@ $(document).ready(function (e) {
                $.each(data.messages, function (index, value) {
                 // APPEND OR INSERT DATA TO SELECT ELEMENT.
                 
-                $('#ipacking').append('<option value="' + value.pack + '">' + value.pack + '</option>');
-                });
+                $('#ipacking').append('<option value="' + value.common_name + '">' + value.common_name + '</option>');
+             });
               }
               else{
               swal("error!", data.messages, "error");
@@ -261,7 +250,7 @@ $(document).ready(function (e) {
                    $(".indicator-progress").show(); 
                    $(".indicator-label").hide();
                     },
-         success: (data) => {
+          success: (data) => {
                      $(".indicator-progress").hide();
                      $(".indicator-label").show();
                     $('#sender').trigger('reset');

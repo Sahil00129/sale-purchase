@@ -3,6 +3,17 @@
 @section('content')
 
 <!--  BEGIN CONTENT AREA  -->
+<style>
+	.ignored {
+    margin-top: 10px;
+    color: red;
+}
+div#ignoredItems {
+    font-size: 13px;
+    border: 1px solid;
+    padding: 17px;
+}
+</style> 
 
 <div class="container">
                 <div class="container">
@@ -72,7 +83,7 @@
                                                 
                                                 <label for="inputState">Identity</label>
                                                 <select id="identity" class="form-control" name="identity">
-                                                    <option selected disabled>Choose...</option>
+                                                    
                                                      @foreach($identitys as $identity)
                                                      <option value="{{$identity->identity}}">{{$identity->identity}}</option>
                                                      @endforeach
@@ -82,7 +93,7 @@
                                                 
                                                 <label for="inputState">Client</label>
                                                 <select id="client" class="form-control" name="client">
-                                                    <option selected disabled>Choose...</option>
+                                                    
                                                      @foreach($clients as $client)
                                                      <option value="{{$client->client}}">{{$client->client}}</option>
                                                      @endforeach
@@ -97,7 +108,10 @@
                                         </label>
     
                                       </div>
-                                                                                                   
+                                      <div class="ignored" style="display:none;">
+															 <h4>Ignored Items, these items are not availabe in the Item Master.</h4>
+														   <div id="ignoredItems">
+                                                           </div>	                                                   
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
@@ -113,15 +127,8 @@
                             </div>
                         </div>
                     </div>
-
-                    
-
-                  
                   
                 </div>
 
                 </div>
-
-
-
 @endsection

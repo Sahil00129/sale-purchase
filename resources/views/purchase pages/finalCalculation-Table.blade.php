@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('title', 'Dashboard')
 @section('content')
-<link rel="stylesheet" type="text/css" href="plugins/table/datatable/datatables.css">
-    <link rel="stylesheet" type="text/css" href="plugins/table/datatable/custom_dt_html5.css">
-    <link rel="stylesheet" type="text/css" href="plugins/table/datatable/dt-global_style.css">
+<link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/datatables.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/custom_dt_html5.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/dt-global_style.css')}}">
 
 <div class="container">
                 <div class="container">
@@ -50,13 +50,11 @@
                                       </div>
                                       <div class="form-group col-md-4">
                                         <label for="inputState">Site</label>
-                                        <select id="siteId" name="site_id" class="form-control">
+                                        <select id="sites" name="sites" class="form-control">
                                            @foreach($sites as $s)
                                                 <option value="{{$s->sites}}">{{$s->sites}}</option>
-                                                @endforeach
-                                              
-                                          </select>
-                                    
+                                           @endforeach       
+                                          </select>      
                                       </div>
                                     </div>
                                         
@@ -64,15 +62,17 @@
                                
                                       <div class="form-group col-md-6">
                                           <label for="inputState">Group</label>
-                                          <select id="igroup" name="group" class="form-control">
-                                              <option selected>Select...</option>
+                                          <select id="group" name="group" class="form-control">
+                                          @foreach($list as $l)
+                                            <option value="{{$l->group}}">{{$l->group}}</option>
+                                          @endforeach
                                              
                                           </select>
                                       </div>
-                                      <div class="form-group col-md-6">
-                                                <label for="inputEmail4">From</label>
-                                                <input type="date" class="form-control" id="fromDate" name="fromDate" placeholder="" autocomplete="off" Required>
-                                            </div>
+                                           <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Date</label>
+                                                 <input type="date" class="form-control" id="date_calender"  name="date_calender" placeholder="" autocomplete="off" Required>
+                                              </div>
                                   </div>
                                      <button type="submit" class="btn btn-primary" id="final-calcualation">Get Data</button> 
 
@@ -85,10 +85,8 @@
                 </div>
 
                 <div class="layout-px-spacing">
-                <div class="page-header">
-                    
+                <div class="page-header">       
                 </div>
-                
                 <div class="row layout-top-spacing" id="cancel-row">
                 
                 
