@@ -17,6 +17,7 @@ class PDFController extends Controller
     {
 
         $site_id = $_POST['site_id'];
+        echo'<pre>'; print_r($site_id);die;
         $identity = $_POST['identity'];
         $client = $_POST['client'];
         $fromDate = $_POST['fromDate'];
@@ -151,7 +152,7 @@ class PDFController extends Controller
  
                    $balance_stock = $opening_balance;
                    foreach($resPre as $row){
-                       echo'<pre>'; print_r($row); die;
+                      // echo'<pre>'; print_r($row); die;
                        if($row['document_type'] == 'SalesInvoice'){
                          @$balance_stock-= $row['quantity_in_kgltr'];
                        }
