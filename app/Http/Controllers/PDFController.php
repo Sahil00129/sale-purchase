@@ -592,7 +592,10 @@ class PDFController extends Controller
         $stock = json_decode(json_encode($stock_trf), true);
         $inm = $item;
         $res = array_merge($sales, $purchase, $stock);
-       
+        if(empty($res)){
+            Session::flash('error', 'No data for this month');
+            return redirect()->back();
+           }else{
         $priorities = ["SalesCreditMemo", "Purchase Invoice", "TransferRcpt", "SalesInvoice", "TransferShpt", "PurchCreditMemo"];
         usort($res, function($a, $b) use ($priorities) {
             return [@$a['bill_date'], @$a['document_type']]
@@ -646,22 +649,16 @@ class PDFController extends Controller
                          $fy_end_dt = $fy_in."-03-31";
                          $opening = DB::table('stock_opening')->where('common_name', $inm)->where('site_id',  $site_id)->whereDate('fy', '<', $opb_date)->get();
                          @$simplyfy = json_decode(json_encode($opening), true);
-                         
                          if(@$simplyfy[0]['opening_balance'] == "-"){
-                         
                              $opening_balance = 0;
                          }
-
                          else{
                              $sum = 0;
                              foreach($simplyfy as $val)
                              {
-                            //echo'<pre>';print_r($simplyfy);die;
                              $sum+= $val['opening_balance'];
-                             
                              }
                              $opening_balance = @$sum;
-                            
                          }
 
          /*********************************** Get opening balance from Sale Data *****************************************/
@@ -1082,7 +1079,7 @@ class PDFController extends Controller
          $pdf->save(public_path().'/pdf/item_'.$item.''.$flag.'.pdf')->stream('item_'.$item.''.$flag.'.pdf');
          $pdf_name[] = 'item_'.$item.''.$flag.'.pdf';
             }
-          
+          }
         }
          $pdfMerger = PDFMerger::init(); 
                       foreach($pdf_name as $pdf){
