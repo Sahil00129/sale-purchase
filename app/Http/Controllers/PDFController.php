@@ -17,7 +17,7 @@ class PDFController extends Controller
     {
 
         $site_id = $_POST['site_id'];
-        echo'<pre>'; print_r($site_id);die;
+       // echo'<pre>'; print_r($site_id);die;
         $identity = $_POST['identity'];
         $client = $_POST['client'];
         $fromDate = $_POST['fromDate'];
