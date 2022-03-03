@@ -468,7 +468,7 @@ class PDFController extends Controller
  
                      if($sldata['document_type'] == 'PurchCreditMemo') {
                          $tocl = (int)$sldata['quantity_in_kgltr'];
-                         echo'<pre>'; print_($tocl); die;
+                         echo'<pre>'; print_r($tocl); die;
                          @$last_balance -= $tocl;   
                          $prstock = $last_balance + $tocl; 
                          $dd .= '<tr>
