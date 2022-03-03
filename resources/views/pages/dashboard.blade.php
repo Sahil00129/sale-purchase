@@ -77,7 +77,7 @@
                                                 <td><div class="td-content customer-name"><span>Purchase</span></div></td>
                                                 <!---fmc purchase date-->
                                                 <?php  if(!empty($latestpurchase->bill_date)){ ?>
-                                                    <?php $pdate = date('d-m-Y',strtotime($latestsale->bill_date)); ?>
+                                                    <?php $pdate = date('d-m-Y',strtotime(@$latestsale->bill_date)); ?>
                                                 <td><div class="td-content product-brand text-warning"><?php echo($pdate);?></div></td>
                                                 <?php } else{ ?>
                                                     <td><div class="td-content product-brand text-warning"> - </div></td>
@@ -85,7 +85,7 @@
                                                     <!---end fmc purchase date-->
                                                     <!-- Corteva purchase date -->
                                                     <?php  if(!empty($latestpurchasecorteva->bill_date)){ ?>
-                                                    <?php $cpdate = date('d-m-Y',strtotime($latestpurchasecorteva->bill_date)); ?>
+                                                    <?php $cpdate = date('d-m-Y',strtotime(@$latestpurchasecorteva->bill_date)); ?>
                                                 <td><div class="td-content product-invoice"><?php echo($cpdate);?></div></td>
                                                 <?php } else{ ?>
                                                     <td><div class="td-content product-invoice"> - </div></td>
@@ -97,7 +97,7 @@
                                                 <td><div class="td-content customer-name"><span>Stock Transfer</span></div></td>
                                                 <!--- fmc stock transfer -->
                                                 <?php  if(!empty($latesttransfer->bill_date)){ ?>
-                                                    <?php $stdate = date('d-m-Y',strtotime($latesttransfer->bill_date)); ?>
+                                                    <?php $stdate = date('d-m-Y',strtotime(@$latesttransfer->bill_date)); ?>
                                                 <td><div class="td-content product-brand text-warning"><?php echo($stdate);?></div></td>
                                                 <?php } else{ ?>
                                                     <td><div class="td-content product-brand text-warning"> - </div></td>
@@ -105,7 +105,7 @@
                                          <!-------endn fmc  stock transfer --->
                                          <!--------corteva stock transfer  --->
                                          <?php  if(!empty($latesttransfercorteva->bill_date)){ ?>
-                                                    <?php $stcdate = date('d-m-Y',strtotime($latesttransfercorteva->bill_date)); ?>
+                                                    <?php $stcdate = date('d-m-Y',strtotime(@$latesttransfercorteva->bill_date)); ?>
 
                                              <td><div class="td-content product-invoice"><?php echo($stcdate);?></div></td>
                                              <?php } else{ ?>

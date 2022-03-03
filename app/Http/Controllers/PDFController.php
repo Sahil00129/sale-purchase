@@ -982,7 +982,7 @@ class PDFController extends Controller
          /*********************************** Purchase Calculation  **************************************/ 
 
          if($sldata['document_type'] == 'Purchase Invoice') {
-             $tocl = (int)$sldata['quantity_in_kgltr'];
+             $tocl = $sldata['quantity_in_kgltr'];
              @$last_balance += $tocl;
              $prstock = $last_balance - $tocl;
              $dd .= '<tr>
