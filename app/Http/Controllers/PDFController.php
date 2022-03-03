@@ -656,9 +656,9 @@ class PDFController extends Controller
                              $sum = 0;
                              foreach($simplyfy as $val)
                              {
-                                echo'<pre>';print_r($simplyfy);die;
+                            //echo'<pre>';print_r($simplyfy);die;
                              $sum+= $val['opening_balance'];
-                             //echo'<pre>';print_r($sum);die;
+                             
                              }
                              $opening_balance = @$sum;
                             
