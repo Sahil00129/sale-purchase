@@ -151,6 +151,7 @@ class PDFController extends Controller
  
                    $balance_stock = $opening_balance;
                    foreach($resPre as $row){
+                       echo'<pre>'; print_r($row); die;
                        if($row['document_type'] == 'SalesInvoice'){
                          @$balance_stock-= $row['quantity_in_kgltr'];
                        }
