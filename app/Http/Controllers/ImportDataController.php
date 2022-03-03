@@ -122,4 +122,14 @@ class ImportDataController extends Controller
            return redirect('/login');
         }
      }  
+
+
+     public function getclientOfGroup()
+     {
+        //echo "<pre>";print_r($_POST);die;
+        $packing = DB::table('item_master')->select('group')->where('client',$_POST['client'])->distinct()->get();
+         $response['success'] = true;
+         $response['messages'] = $packing;
+         return Response::json($response);
+     }
 }

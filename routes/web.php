@@ -64,6 +64,7 @@ Route::get('/get-pdf', [ImportDataController::class,'getsinglepdf']);
 Route::any('/generate-pdf', [PDFController::class, 'generatePDF']);
 
 Route::post('filter-items', [ImportDataController::class,'getItemsofgroup']); 
+Route::post('filter-group', [ImportDataController::class,'getclientOfGroup']); 
 
 Route::get('/bulkpdf', [ImportDataController::class,'bulkpdf']);
 Route::any('/generate-allinone-pdf', [PDFController::class, 'allinone']);

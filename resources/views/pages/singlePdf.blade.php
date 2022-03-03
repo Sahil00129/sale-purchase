@@ -48,7 +48,7 @@
                                       <div class="form-group col-md-4">
                                         <label for="inputState">Client</label>
                                         <select id="client" name="client" class="form-control">
-
+                                        <option selected>Select...</option>
                                             <?php
                                             $role = Auth::user()->role;
                                             if($role == 'super admin'){?>
@@ -111,9 +111,7 @@
                                           <label for="inputState">Group</label>
                                           <select id="igroup" name="group" class="form-control">
                                               <option selected>Select...</option>
-                                              @foreach($list as $l)
-                                              <option value="{{$l->group}}">{{$l->group}}</option>
-                                              @endforeach
+                                             
                                              
                                           </select>
                                       </div>

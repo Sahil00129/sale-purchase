@@ -96,7 +96,45 @@ $(document).ready(function (e) {
             }
           });
           });
-/////////////////////////////group////////////////////
+        ////////////////////////////////Client wise group////////////////////////////////////////
+        $.ajaxSetup({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+          });
+        $('#client').on('change', function() {
+          $('#igroup').empty(); 
+         var selected = this.value; 
+         var fd = new FormData();
+         fd.append('client', selected);
+          $.ajax({
+            type:'POST',
+            url: "/filter-group",  
+            data: fd,
+            cache:false, 
+            contentType: false,
+            processData: false,
+            success: (data) => {
+            //console.log(data);
+            if(data.success === true) {
+              //alert(data.messages);
+             var sObj = data.messages;
+             $.each(data.messages, function (index, value) {
+              // APPEND OR INSERT DATA TO SELECT ELEMENT.
+              
+              $('#igroup').append('<option value="' + value.group + '">' + value.group + '</option>');
+           });
+            }
+            else{
+            swal("error!", data.messages, "error");
+            }
+          }
+        });
+        });
+//////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////group/////////////////////
   //alert('h'); die;
   $('#add-group').submit(function(e) {
     e.preventDefault();
