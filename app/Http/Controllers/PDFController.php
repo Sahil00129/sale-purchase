@@ -438,6 +438,8 @@ class PDFController extends Controller
  
                      if($sldata['document_type'] == 'Purchase Invoice') {
                          $tocl = (int)$sldata['quantity_in_kgltr'];
+                         echo'<pre>'; print_r($last_balance); 
+                         echo'<pre>'; print_r($tocl); die;
                          @$last_balance += $tocl;
                          $prstock = $last_balance - $tocl;
                          $dd .= '<tr>
@@ -468,7 +470,7 @@ class PDFController extends Controller
  
                      if($sldata['document_type'] == 'PurchCreditMemo') {
                          $tocl = (int)$sldata['quantity_in_kgltr'];
-                         echo'<pre>'; print_r($tocl); die;
+                         //echo'<pre>'; print_($tocl);
                          @$last_balance -= $tocl;   
                          $prstock = $last_balance + $tocl; 
                          $dd .= '<tr>
