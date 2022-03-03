@@ -29,9 +29,12 @@
                                 <thead>
                                     <tr>
                                         <th>Item Name</th>
+                                        <th>Common Name</th>
 							         	<th>Bill Date</th>
 								        <th>Bill No</th>
                                         <th>Quantity In Kgltr</th>
+                                        <th>Client</th>
+                                        <th>Sites</th>
                                     </tr>
                                 </thead>
                                 <tbody>

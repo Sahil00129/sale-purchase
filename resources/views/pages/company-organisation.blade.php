@@ -9,8 +9,6 @@
       <div id="flFormsGrid" class="col-lg-12 layout-spacing">
         <div class="statbox widget box box-shadow">
           <div class="widget-header">
-              
-
                     <div class="form-row mb-0">
                       <div class="form-group col-md-4">
                         
@@ -22,15 +20,13 @@
                   <svg xmlns="http://www.w3.org/2000/svg" style="width: 4%; height:0%;margin-left: 450px;"
                     fill="currentColor" class="bi bi-plus add" viewBox="0 0 16 16">
                     <path
-                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                  </svg>
-                  <div id="new_chq"  class="form-row mb-0"></div>
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                   </svg>
+                      <div id="new_chq"  class="form-row mb-0"></div>
                          <input type="hidden" class="form-control" value="1" placeholder="Super Admin" id="total_chq">
-
-   
-          </div>
+              </div>
+           </div>
         </div>
-      </div>
     </div>
   </div>
 </div>

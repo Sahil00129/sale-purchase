@@ -39,6 +39,7 @@
                                 <thead>
                                     <tr>
                                         <th>ITEM NAME</th>
+                                        <th>Common Name</th>
 							         	<th>ITEM NUMBER</th>
 								        <th>PACKAGING</th>
                                         <th>GROUP</th>
@@ -50,6 +51,7 @@
                                     @foreach($itemmasters as $itemmaster)
                                     <tr>
                                         <td>{{$itemmaster->item_name}}</td>
+                                        <td>{{$itemmaster->common_name}}</td>
                                         <td>{{$itemmaster->item_number}}</td>
                                         <td>{{$itemmaster->pack}}</td>
                                         <td>{{$itemmaster->group}}</td>

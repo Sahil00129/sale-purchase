@@ -28,11 +28,14 @@ $(document).ready(function (e) {
             
         columns: [
             { "data": "item_name" },
+            { "data": "common_name" },
             { "data": "bill_no" },
             { "data": "bill_date" },
             { "data": "sales_to_customer_name" },
             { "data": "quantity_in_kgltr" },
             { "data": "document_type" },
+            { "data": "client" },
+            { "data": "site_id" },
         ],
 
         initComplete: function () {
@@ -76,6 +79,7 @@ $(document).ready(function (e) {
             "pageLength": 50,
     columns: [
         { "data": "item_name" },
+        { "data": "common_name" },
         { "data": "bill_date" },
         { "data": "vendor_name" },
         { "data": "batch_number" },
@@ -83,6 +87,8 @@ $(document).ready(function (e) {
         { "data": "vendor_invoice_date" },
         { "data": "quantity_in_kgltr" },
         { "data": "document_type" },
+        { "data": "client" },
+        { "data": "site_id" },
     ],
     initComplete: function () {
       this.api().columns().every(function () {
@@ -161,9 +167,12 @@ $('#opening').DataTable({
       
   columns: [
       { "data": "item_name" },
+      { "data": "common_name" },
       { "data": "site_id" },
       { "data": "opening_balance" },
       { "data": "fy" },
+      { "data": "client" },
+      { "data": "site_id" },
     
   ],
   "pageLength": 30,
@@ -210,9 +219,12 @@ $('#stock_transfer').DataTable({
       
   columns: [
       { "data": "item_name" },
+      { "data": "common_name" },
       { "data": "bill_date" },
       { "data": "bill_no" },
       { "data": "quantity_in_kgltr" },
+      { "data": "client" },
+      { "data": "site_id" },
     
   ],
   "pageLength": 30,

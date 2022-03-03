@@ -41,6 +41,7 @@
                                 <thead>
                                     <tr>
                                     <th>Item name</th>
+                                    <th>Common Name</th>
 							    	<th>Bill Date</th>
 							    	<th>Vendor Name</th>
 							    	<th>Batch No.</th>
@@ -48,6 +49,8 @@
                                     <th>VInv. Date</th>
                                     <th>Qty in kgltr</th>
                                     <th>Doc Type</th>
+                                    <th>Client</th>
+                                    <th>Sites</th>
 								       
                                     </tr>
                                 </thead>

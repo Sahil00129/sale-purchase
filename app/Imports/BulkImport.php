@@ -35,8 +35,7 @@ class BulkImport implements ToModel,WithHeadingRow
             'poi'   => $row['perticulars_of_insecticide'],
             'regis_no'   => $row['registration_number'],
             'identity' => $_POST['identity'],
-            'client' => $_POST['client'],
-            
+            'client' => $_POST['client'],      
            
         ]);
        
@@ -44,7 +43,7 @@ class BulkImport implements ToModel,WithHeadingRow
 
        if($_POST['import_type'] == 2){
        //echo "<pre>"; print_r($_POST);die;
-        set_time_limit(2333);
+        set_time_limit(23333);
         if (itemMaster::where('item_name', '=', $row['item_name'])->exists()) {
             $cname = DB::table('item_master')->select('common_name')->where('item_name', $row['item_name'])->first();
             $cname = $cname->common_name;

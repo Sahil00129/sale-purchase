@@ -29,9 +29,12 @@
                                 <thead>
                                     <tr>
                                         <th>Item Name</th>
+                                        <th>Common Name</th>
 							         	<th>SITE ID</th>
 								        <th>Opening Balance</th>
                                         <th>FY</th>
+                                        <th>Client</th>
+                                        <th>Sites</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,10 +48,5 @@
 
                 </div>
                 </div>
-
-
-
-
-
 
 @endsection

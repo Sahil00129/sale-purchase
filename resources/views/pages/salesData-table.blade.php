@@ -41,11 +41,14 @@
                                 <thead>
                                     <tr>
                                         <th>ITEM NAME</th>
+                                        <th>Common Name</th>
 							         	<th>BILL NO</th>
 								        <th>BILL DATE</th>
                                         <th>SALE TO CUSTOMER</th>
                                         <th>QTY KGLTR</th>
                                         <th>DOC TYPE</th>
+                                        <th>Client</th>
+                                        <th>Sites</th>
 								       
                                     </tr>
                                 </thead>
