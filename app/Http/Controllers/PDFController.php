@@ -654,9 +654,10 @@ class PDFController extends Controller
                              foreach($simplyfy as $val)
                              {
                              $sum+= $val['opening_balance'];
+                             echo'<pre>';print_r($sum);die;
                              }
                              $opening_balance = @$sum;
-                             echo'<pre>';print_r($opening_balance);die;
+                            
                          }
 
          /*********************************** Get opening balance from Sale Data *****************************************/
