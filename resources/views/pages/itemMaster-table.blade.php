@@ -25,7 +25,7 @@
                     <table>
 							<!--begin::Table row-->
 							<tr id="filters">
-                            <th>ITEM NAME</th>
+                                        <th>ITEM NAME</th>
 							         	<th>ITEM NUMBER</th>
 								        <th>PACKAGING</th>
                                         <th>GROUP</th>
@@ -43,6 +43,7 @@
 							         	<th>ITEM NUMBER</th>
 								        <th>PACKAGING</th>
                                         <th>GROUP</th>
+                                        <th>CLIENT</th>
                                         <th>ACTION</th>
 								       
                                     </tr>
@@ -55,6 +56,7 @@
                                         <td>{{$itemmaster->item_number}}</td>
                                         <td>{{$itemmaster->pack}}</td>
                                         <td>{{$itemmaster->group}}</td>
+                                        <td>{{$itemmaster->client}}</td>
                                         <td><a href="delete-courierCompany/{{$itemmaster->id}}" class="btn btn-danger btn-sm">Delete</a>  
                                         </td>
                                     </tr>

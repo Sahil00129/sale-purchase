@@ -441,7 +441,7 @@ class PDFController extends Controller
 
                          //echo'<pre>'; print_r($sldata['quantity_in_kgltr']); 
                          //echo'<pre>'; print_r($last_balance); 
-                        // echo'<pre>'; print_r($tocl); die;
+                         //echo'<pre>'; print_r($tocl); die;
                          @$last_balance += $tocl;
                          $prstock = $last_balance - $tocl;
                          $dd .= '<tr>

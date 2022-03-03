@@ -39,12 +39,10 @@ class ImportDataController extends Controller
             $ignored[] = $csvData[3];
         }
         }
-        else{
-            $ignored[] = '';
-        }
+        
         }     
         $countIgnored = count($ignored);
-        //echo "<pre>"; print_r($countIgnored);die;
+       // echo "<pre>"; print_r($countIgnored);die;
         $data = Excel::import(new BulkImport,request()->file('file'));
         $response['success'] = true;
         $response['ignoredItems'] = $ignored;
