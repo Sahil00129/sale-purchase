@@ -648,7 +648,7 @@ class PDFController extends Controller
                          @$simplyfy = json_decode(json_encode($opening), true);
                          
                          if(@$simplyfy[0]['opening_balance'] == "-"){
-                            echo'<pre>';print_r($simplyfy[0]['opening_balance']);die;
+                         
                              $opening_balance = 0;
                          }
 
@@ -656,6 +656,7 @@ class PDFController extends Controller
                              $sum = 0;
                              foreach($simplyfy as $val)
                              {
+                                echo'<pre>';print_r($simplyfy);die;
                              $sum+= $val['opening_balance'];
                              //echo'<pre>';print_r($sum);die;
                              }
