@@ -892,7 +892,7 @@ class PDFController extends Controller
            //echo "<pre>";print_r($sldata);die;
            foreach ($listitems as $sldata){
              if($sldata['document_type'] == 'SalesInvoice') {
-                 $tocl = $sldata['quantity_in_kgltr'];
+                 $tocl = (int)$sldata['quantity_in_kgltr'];
                  @$last_balance -= $tocl;   
                  $prstock = $last_balance + $tocl;
                  $dd .= '<tr>
@@ -922,7 +922,7 @@ class PDFController extends Controller
              /*********************************** Sale Return Calculation  **************************************/
    
              if($sldata['document_type'] == 'SalesCreditMemo') {
-                 $tocl = $sldata['quantity_in_kgltr']; 
+                 $tocl = (int)$sldata['quantity_in_kgltr']; 
                  @$last_balance += $tocl;
                  $prstock = $last_balance - $tocl;
                  $dd .= '<tr>
@@ -952,7 +952,7 @@ class PDFController extends Controller
              /*********************************** Transfershpt out Calculation  **************************************/   
 
              if($sldata['document_type'] == 'TransferShpt') {
-                 $tocl = $sldata['quantity_in_kgltr'];   
+                 $tocl = (int)$sldata['quantity_in_kgltr'];   
                  @$last_balance -= $tocl;
                  $prstock = $last_balance + $tocl;
                  $dd .='<tr>
@@ -982,10 +982,7 @@ class PDFController extends Controller
          /*********************************** Purchase Calculation  **************************************/ 
 
          if($sldata['document_type'] == 'Purchase Invoice') {
-             $tocl = $sldata['quantity_in_kgltr'];
-                        //echo'<pre>'; print_r($sldata['quantity_in_kgltr']); 
-                         //echo'<pre>'; print_r($last_balance); 
-                         //echo'<pre>'; print_r($tocl); die;
+             $tocl = (int)$sldata['quantity_in_kgltr'];
              @$last_balance += $tocl;
              $prstock = $last_balance - $tocl;
              $dd .= '<tr>
@@ -1015,7 +1012,7 @@ class PDFController extends Controller
        /*********************************** Purchase Return Calculation  **************************************/ 
 
          if($sldata['document_type'] == 'PurchCreditMemo') {
-             $tocl = $sldata['quantity_in_kgltr'];
+             $tocl = (int)$sldata['quantity_in_kgltr'];
              @$last_balance -= $tocl;   
              $prstock = $last_balance + $tocl; 
              $dd .= '<tr>
