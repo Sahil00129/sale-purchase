@@ -645,7 +645,8 @@ class PDFController extends Controller
                          $fy_in =  date('Y', strtotime('-1 year'));
                          $fy_end_dt = $fy_in."-03-31";
                          $opening = DB::table('stock_opening')->where('common_name', $inm)->where('site_id',  $site_id)->whereDate('fy', '<', $opb_date)->get();
-                         @$simplyfy = json_decode(json_encode($opening), true);
+                         $simplyfy = json_decode(json_encode($opening), true);
+                         echo'<pre>';print_r($simplyfy);die;
                          if(@$simplyfy[0]['opening_balance'] == "-"){
                              $opening_balance = 0;
                          }
@@ -654,7 +655,7 @@ class PDFController extends Controller
                              foreach($simplyfy as $val)
                              {
                              $sum+= $val['opening_balance'];
-                             echo'<pre>';print_r($sum);die;
+                             //echo'<pre>';print_r($sum);die;
                              }
                              $opening_balance = @$sum;
                             
